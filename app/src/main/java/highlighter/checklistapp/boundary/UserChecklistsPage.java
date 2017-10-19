@@ -27,7 +27,7 @@ public class UserChecklistsPage extends UserHomepage{
     };
 
     Integer[] imgid={
-            R.drawable.pic1,
+            //R.drawable.pic1,
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {

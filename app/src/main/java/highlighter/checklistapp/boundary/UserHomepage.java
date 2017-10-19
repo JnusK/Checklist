@@ -13,7 +13,7 @@ import java.util.List;
 import highlighter.checklistapp.R;
 
 public class UserHomepage extends AppCompatActivity {
-    public static final List<String> frequency_list = Arrays.asList("daily", "weekly", "biweekly", "monthly", "yearly");
+    public static final List<String> frequency_list = Arrays.asList("Daily", "Weekly", "Biweekly", "Monthly", "Yearly");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

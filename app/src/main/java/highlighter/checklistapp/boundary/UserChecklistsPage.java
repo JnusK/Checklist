@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import highlighter.checklistapp.R;
 
-public class UserChecklistsPage{
+public class UserChecklistsPage extends UserHomepage{
 
     ListView list;
     String[] itemname ={
@@ -27,20 +28,13 @@ public class UserChecklistsPage{
 
     Integer[] imgid={
             R.drawable.pic1,
-            R.drawable.pic2,
-            R.drawable.pic3,
-            R.drawable.pic4,
-            R.drawable.pic5,
-            R.drawable.pic6,
-            R.drawable.pic7,
-            R.drawable.pic8,
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_checklistspage);
 
-        CustomListAdapter adapter=new CustomListAdapter(this, itemname, imgid);
+        CustomListAdapter adapter = new CustomListAdapter(this, itemname, imgid);
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
 

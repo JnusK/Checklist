@@ -30,6 +30,9 @@
         <activity
             android:name=".boundary.UserChecklistsPage">
         </activity>
+        <activity
+            android:name=".boundary.AdminCreateAccount">
+        </activity>
     </application>
 
 </manifest>

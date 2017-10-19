@@ -13,7 +13,18 @@
         android:text="static text"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="130dp"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/user_homepage_ViewAllbtn"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/user_homepage_ViewAllbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/user_homepage_spinner"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        android:text="View All" />
 
 </RelativeLayout>

@@ -26,4 +26,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/user_homepage_spinner" />
 
+    <Button
+        android:id="@+id/user_homepage_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/user_homepage_spinner"
+        android:layout_below="@+id/user_homepage_spinner"
+        android:layout_marginTop="39dp"
+        android:text="Next" />
+
 </RelativeLayout>

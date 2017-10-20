@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import highlighter.checklistapp.R;
 
@@ -18,9 +17,11 @@ public class UserChecklistsPage extends UserHomepage{
     ListView list;
     String[] itemname ={
             "Service Building",
+            "Control Building",
     };
 
     Integer[] imgid={
+            R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,
     };
     @Override
@@ -30,7 +31,6 @@ public class UserChecklistsPage extends UserHomepage{
         setContentView(R.layout.activity_user_checklistspage);
 
         frequencytextView = (TextView)findViewById(R.id.user_checklistspage_textview_frequency);
-
         getFrequencyData();
 
         CustomListAdapter adapter = new CustomListAdapter(this, itemname, imgid);
@@ -43,8 +43,13 @@ public class UserChecklistsPage extends UserHomepage{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                String Slecteditem= itemname[+position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+                //String Slecteditem= itemname[+position];
+                //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+
+                //For testing purposes
+                //Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(UserChecklistsPage.this, UserDetailedChecklistPage.class);
+                startActivity(i);
             }
         });
 

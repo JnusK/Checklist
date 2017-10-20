@@ -13,6 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="12dp"
         android:layout_marginTop="18dp"
+        android:onClick="onClick"
         android:textSize="36sp" />
 
 

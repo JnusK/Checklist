@@ -1,38 +1,37 @@
 package highlighter.checklistapp.boundary;
 
-import android.app.Activity;
-import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import highlighter.checklistapp.R;
 
 public class UserChecklistsPage extends UserHomepage{
 
+    TextView frequencytextView;
+
     ListView list;
     String[] itemname ={
-            "Safari",
-            "Camera",
-            "Global",
-            "FireFox",
-            "UC Browser",
-            "Android Folder",
-            "VLC Player",
-            "Cold War"
+            "Service Building",
     };
 
     Integer[] imgid={
-            //R.drawable.pic1,
+            R.mipmap.ic_launcher,
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_checklistspage);
+
+        frequencytextView = (TextView)findViewById(R.id.user_checklistspage_textview_frequency);
+
+        getFrequencyData();
 
         CustomListAdapter adapter = new CustomListAdapter(this, itemname, imgid);
         list=(ListView)findViewById(R.id.list);
@@ -46,8 +45,15 @@ public class UserChecklistsPage extends UserHomepage{
                 // TODO Auto-generated method stub
                 String Slecteditem= itemname[+position];
                 Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
-
             }
         });
+
     }
+
+    private void getFrequencyData(){
+        Intent intent = getIntent();
+        String frequencytext = intent.getStringExtra("ftext");
+        frequencytextView.setText(frequencytext);
+    }
+
 }

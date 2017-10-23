@@ -35,7 +35,6 @@ public class UserHomepage extends AppCompatActivity{
                 Intent i= new Intent(UserHomepage.this, UserChecklistsPage.class);
                 i.putExtra("ftext", frequencytext);
                 startActivity(i);
-                //Toast.makeText(getApplicationContext(), frequencytext, Toast.LENGTH_SHORT).show();
             }
         });
 

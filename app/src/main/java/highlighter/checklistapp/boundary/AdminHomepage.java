@@ -26,7 +26,7 @@ public class AdminHomepage extends LoginActivity implements OnClickListener {
                 startActivity(i);
                 break;
             case R.id.admin_homepage_textViewedit:
-                i = new Intent(AdminHomepage.this, UserHomepage.class);
+                i = new Intent(AdminHomepage.this, AdminSearchAccount.class);
                 startActivity(i);
                 break;
             case R.id.admin_homepage_textViewmodify:
@@ -38,7 +38,7 @@ public class AdminHomepage extends LoginActivity implements OnClickListener {
                 startActivity(i);
                 break;
             case R.id.admin_homepage_textViewchecklist:
-                i = new Intent(AdminHomepage.this, UserChecklistsPage.class);
+                i = new Intent(AdminHomepage.this, UserHomepage.class);
                 startActivity(i);
                 break;
         }

@@ -7,10 +7,44 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="26dp"
         android:layout_marginTop="25dp"
-        android:text="Sign up form"
-        android:textSize="36sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="New Account"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/admin_createaccount_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/admin_createaccount_create"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="@string/prompt_email"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/admin_createaccount_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/admin_createaccount_name"
+        android:layout_alignStart="@+id/admin_createaccount_name"
+        android:layout_below="@+id/admin_createaccount_name"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/admin_createaccount_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="21dp"
+        android:text="Create" />
 </RelativeLayout>

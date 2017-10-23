@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 import highlighter.checklistapp.R;
 
@@ -18,9 +17,11 @@ public class UserChecklistsPage extends UserHomepage{
     ListView list;
     String[] itemname ={
             "Service Building",
+            "Control Building",
     };
 
     Integer[] imgid={
+            R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,
     };
     @Override
@@ -30,8 +31,7 @@ public class UserChecklistsPage extends UserHomepage{
         setContentView(R.layout.activity_user_checklistspage);
 
         frequencytextView = (TextView)findViewById(R.id.user_checklistspage_textview_frequency);
-
-        getFrequencyData();
+        getFrequencyText();
 
         CustomListAdapter adapter = new CustomListAdapter(this, itemname, imgid);
         list=(ListView)findViewById(R.id.list);
@@ -43,14 +43,20 @@ public class UserChecklistsPage extends UserHomepage{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                String Slecteditem= itemname[+position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+                String Selecteditem = itemname[+position];
+
+                Intent i = new Intent(UserChecklistsPage.this, UserDetailedChecklistPage.class);
+                i.putExtra("selectedDesc", Selecteditem);
+                startActivity(i);
+
+                //For testing purposes
+                //Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    private void getFrequencyData(){
+    private void getFrequencyText(){
         Intent intent = getIntent();
         String frequencytext = intent.getStringExtra("ftext");
         frequencytextView.setText(frequencytext);

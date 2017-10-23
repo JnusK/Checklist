@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import highlighter.checklistapp.R;
 
 public class CustomListAdapter extends ArrayAdapter<String> {
@@ -28,9 +29,9 @@ public class CustomListAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.mylist, null,true);
 
-        TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
+        TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewChecklistName);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
+        TextView extratxt = (TextView) rowView.findViewById(R.id.textViewChecklistDescription);
 
         txtTitle.setText(itemname[position]);
         imageView.setImageResource(imgid[position]);

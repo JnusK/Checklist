@@ -15,23 +15,19 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity android:name=".boundary.AdminHomepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".boundary.UserHomepage">
-        </activity>
-        <activity
-            android:name=".boundary.UserChecklistsPage">
-        </activity>
-        <activity
-            android:name=".boundary.AdminCreateAccount">
-        </activity>
+        <activity android:name=".boundary.UserHomepage"></activity>
+        <activity android:name=".boundary.UserChecklistsPage"></activity>
+        <activity android:name=".boundary.AdminCreateAccount"></activity>
+        <activity android:name=".boundary.UserDetailedChecklistPage"></activity>
+        <activity android:name=".boundary.AdminSearchAccount"></activity>
     </application>
 
 </manifest>

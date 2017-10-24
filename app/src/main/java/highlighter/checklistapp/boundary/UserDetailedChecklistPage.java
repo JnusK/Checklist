@@ -7,6 +7,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import highlighter.checklistapp.R;
+import highlighter.checklistapp.customClass.CustomListAdapter2;
 
 public class UserDetailedChecklistPage extends UserChecklistsPage{
 

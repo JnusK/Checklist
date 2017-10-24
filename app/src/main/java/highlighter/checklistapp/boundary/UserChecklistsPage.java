@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import highlighter.checklistapp.R;
+import highlighter.checklistapp.customClass.CustomListAdapter;
 
 public class UserChecklistsPage extends UserHomepage{
 
@@ -34,7 +35,7 @@ public class UserChecklistsPage extends UserHomepage{
         getFrequencyText();
 
         CustomListAdapter adapter = new CustomListAdapter(this, itemname, imgid);
-        list=(ListView)findViewById(R.id.list);
+        list = (ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new OnItemClickListener() {

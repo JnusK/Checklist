@@ -1,9 +1,12 @@
 package highlighter.checklistapp.boundary;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -17,27 +20,51 @@ public class AdminSearchAccount extends AppCompatActivity {
     ListView account_list;
     EditText search_filter;
     ArrayAdapter adapter;
+    ArrayList<String> account_names;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_search_account);
+
+        getAccounts();
+        initialiseView();
+    }
+
+    private void initialiseView(){
         account_list = (ListView) findViewById(R.id.admin_search_account_search_accounts_list);
         search_filter = (EditText) findViewById(R.id.admin_search_account_search_filter);
 
-        populateList();
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, account_names);
+        account_list.setAdapter(adapter);
+
+        account_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+                String selected_item = account_names.get(+position);
+
+                Intent i = new Intent(AdminSearchAccount.this, AdminEditAccount.class);
+                i.putExtra("selected_item", selected_item);
+                startActivity(i);
+            }
+        });
+
         activateSearch();
     }
 
-    private void populateList(){
-        ArrayList<String> accounts = new ArrayList<>();
-        accounts.add("A");
-        accounts.add("B");
-        accounts.add("C");
-        accounts.add("D");
+    //edit this
+    private void getAccounts(){
+        account_names = new ArrayList<>();
 
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, accounts);
-        account_list.setAdapter(adapter);
+        //fake data
+        account_names.add("A");
+        account_names.add("B");
+        account_names.add("C");
+        account_names.add("D");
+
     }
 
     private void activateSearch(){

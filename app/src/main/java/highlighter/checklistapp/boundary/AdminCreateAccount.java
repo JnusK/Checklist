@@ -17,13 +17,16 @@ public class AdminCreateAccount extends AdminHomepage {
 
     TextView name, password;
     Button create_button;
-
     String username, user_password;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_createaccount);
 
+        initialiseView();
+    }
+
+    private void initialiseView(){
         name = (TextView) findViewById(R.id.admin_createaccount_name);
         password = (TextView) findViewById(R.id.admin_createaccount_password);
         create_button = (Button) findViewById(R.id.admin_createaccount_create);
@@ -37,6 +40,7 @@ public class AdminCreateAccount extends AdminHomepage {
         });
     }
 
+    //edit this
     private void createNewProfile(){
         username = name.getText().toString();
         user_password = password.getText().toString();

@@ -1,0 +1,10 @@
+{
+  "S1234567Z": {
+    "pw": "password",
+    "user_type": 1
+  },
+  "S9876543A": {
+    "pw": "password",
+    "user_type": 0
+  }
+}

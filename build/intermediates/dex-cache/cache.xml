@@ -2,94 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\9f902afcf75a891470bdcf5dcddd3962cfa23bf1\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\Projects\Checklist\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_de5f213d9eff98153dbe4f635185ef89d05a3f89.jar" />
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\Projects\Checklist\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5b0202573b42b2d5f5ae0de86d04e39dfc7d0689\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\Projects\Checklist\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_6b202ad56df309ee7e39876fd80a60f44c46465a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_08751b5700dd93da0436ac58eeba4f135f17f992.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\cb4882733c429d62d5ad46624d79b00337e23145\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_73ad8114aa112af3c5cea714e2558c7aa74d1db8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\a10ee840ba2ef33ca9eaacd045569e522ffd0fc1\output\jars\libs\internal_impl-23.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_5375c3995b97f777d36f31f6d5858285204481fd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\98470e0aa61fd68edd3bec5ed7d5a8013948922e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_1e16e623660c917cda3f6409c527e4145a2ff979.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\15ce4db118a615224b74895ffa53694e406781f3\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_abcb4832732ce2b57886437f7633b2eaeea5058c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\b830cf34d494cd5155313cb58c3dfda9f912727c\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_95187bfda8e78809806d988ee1d640ef385949b3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\72b1d91503de0311e71359c55c58de1c512d7dfd\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_82ad8a83413e9a5d0fe1c5e6126d9054fd86c145.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Spencer\.android\build-cache\a10ee840ba2ef33ca9eaacd045569e522ffd0fc1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="C:\Users\Spencer\Documents\AndroidStudiosProject\Checklist\app\build\intermediates\pre-dexed\debug\classes_d2382ebac806b96b5c1ad6839dfc2bd2819067fc.jar" />
+        sha1="f41ed4401e14455afb2dc37b1eb76c454074bd39">
+        <dex dex="D:\Projects\Checklist\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_69819d61609d8ace15eefdfec043cf4f0b10b431\classes.dex" />
     </item>
 
 </items>

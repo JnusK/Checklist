@@ -1,5 +1,15 @@
 package highlighter.checklistapp.entity;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.view.View;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +32,6 @@ public class ChecklistDB {
 
         return 1;
     }
-
 
 
 }

@@ -3,7 +3,9 @@ package highlighter.checklistapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +32,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -65,6 +69,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Creating the initial user DB
+        SQLiteDatabase db = openOrCreateDatabase("App",MODE_PRIVATE,null);
+        //Create table
+        db.execSQL("CREATE TABLE IF NOT EXISTS UserDB(id VARCHAR(10),password VARCHAR(20), user_type INT, create_on TIMESTAMP);");
+        //Insert default user
+        db.execSQL("INSERT INTO UserDB VALUES('admin','admin',1);");
+        //Create checklist table
+        db.execSQL("CREATE TABLE IF NOT EXISTS ChecklistDB(id VARCHAR(10),name VARCHAR(100), content VARCHAR(1024), frequency INT, create_on TIMESTAMP);");
+
+
+//        SharedPreferences.Editor editor = getSharedPreferences("users", MODE_PRIVATE).edit();
+//        //key pair is id:<pw, user_type>
+//        Set<String> s = new HashSet<String>();
+//        s.add("admin");
+//        s.add("1");
+//        editor.putStringSet("admin", s);
+//        editor.apply();
+
+
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

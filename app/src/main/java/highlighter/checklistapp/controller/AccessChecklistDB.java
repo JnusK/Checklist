@@ -10,6 +10,8 @@ import org.json.JSONStringer;
  */
 
 public class AccessChecklistDB {
+
+
     public static int[] findChecklistByFrequency(int frequency_id){
         /**
          * Find the checklists that are of the frequency selected and return their id

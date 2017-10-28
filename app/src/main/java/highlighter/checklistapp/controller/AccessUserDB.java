@@ -24,6 +24,7 @@ public class AccessUserDB {
          * Check if pw provided by user tallies with DB
          * Return 1 when correct and 0 when incorrect
          */
+
         return 1;
 
     }
@@ -32,6 +33,7 @@ public class AccessUserDB {
         /**
          * Add account to DB, should check prior if user exist
          */
+
     }
 
     public static int checkUserType(String user_id){
@@ -39,6 +41,7 @@ public class AccessUserDB {
          * Check if user is admin or user
          * 1 is admin, 0 is user
          */
+
         return 0;
     }
 
@@ -47,6 +50,7 @@ public class AccessUserDB {
          * Allow user to change pw
          * 1 is succesful, 0 is unsuccessful
          */
+
         return 1;
     }
 }

@@ -14,6 +14,4 @@ public class Checklist {
     int frequency;
     ArrayList<ChecklistItem> checklistItems;
 
-
-
 }

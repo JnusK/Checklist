@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 
 import org.json.JSONArray;
@@ -28,37 +29,19 @@ import static android.app.PendingIntent.getActivity;
 public class UserDB {
 
     ArrayList<User> userDB;
-    String user;
-    String password;
 
-
-    public int authenticate(String id, String password){
-        SharedPreferences db = getSharedPreferences("users", MODE_PRIVATE);
-        //key pair is id:{pw, user_type}
-        try {
-            Set<String> user = user_db.getStringSet(key:id);
-        }
-        catch{
-            return 0;
-        }
-
-        return 1;
+    public void addUser(User user){
+        /**
+         * Add a user to the ArrayList<User>
+         */
+        this.userDB.add(user);
     }
 
-    public int addUser(String user, String password){
-       return 1;
+    public ArrayList<User> getUsers(){
+        return userDB;
     }
 
-    public ArrayList<User> readDB(){
-        ArrayList<User> arr = new ArrayList<>();
-
-        SQLiteDatabase db = openDatabase("App",null);
-        Cursor resultSet = db.rawQuery("Select * from UserDB",null);
-        resultSet.moveToFirst();
-        while (resultSet.isClosed() == false){
-            User user = new User();
-
-        }
+    public UserDB(ArrayList<User> userDB, String user, String password){
+        this.userDB = userDB;
     }
-
 }

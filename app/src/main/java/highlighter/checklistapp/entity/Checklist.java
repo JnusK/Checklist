@@ -58,6 +58,19 @@ public class Checklist {
         this.checklistItems.add(item);
     }
 
+    public void setChecklistItemDescription(int id, String description){
+        this.checklistItems.get(id).setDescription(description);
+    }
+
+    public void setChecklistItemServiceability(int id, String serviceability){
+        this.checklistItems.get(id).setDescription(serviceability);
+    }
+
+    public int getServiceability(int id){
+        return this.checklistItems.get(id).getServiceability();
+    }
+
+
     public Checklist(String name, int id, int date_added, int frequency, ArrayList<ChecklistItem> checklistItems){
         this.name = name;
         this.id = id;

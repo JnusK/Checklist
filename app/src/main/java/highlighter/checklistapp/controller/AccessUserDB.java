@@ -89,6 +89,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
         else return 1;
     }
 
+
     public int checkUserType(String user_id){
         /**
          * Check if user is admin or user
@@ -107,6 +108,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
     public int addUserToDB(String id, String password, int type, int date_added){
         /**
          * Add account to DB
+         * return 1 if successful and 0 if user exist
          */
 
         if(this.findUser(id) == 1){
@@ -120,11 +122,13 @@ public class AccessUserDB extends SQLiteOpenHelper{
         values.put(KEY_ID, user.getID()); // user_id
         values.put(KEY_PASSWORD, user.getPassword()); // Password
         values.put(KEY_TYPE, user.getType());
-        values.put(KEY_DATE_ADDED, user.getDate_added());
+        values.put(KEY_DATE_ADDED, user.getDateAdded());
 
-        // Inserting Row
+        // Inserting Row into SQLite
         db.insert(TABLE_USERS, null, values);
         db.close(); // Closing database connection
+        //Add into object
+        this.userDB.addUser(user);
         return 1;
     }
 

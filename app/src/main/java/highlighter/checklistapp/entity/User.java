@@ -46,7 +46,7 @@ public class User {
         return type;
     }
 
-    public int getDate_added(){
+    public int getDateAdded(){
         return  date_added;
     }
 

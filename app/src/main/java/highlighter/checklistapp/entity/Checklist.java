@@ -8,10 +8,62 @@ import java.util.ArrayList;
 
 public class Checklist {
 
-    String name;
-    int id;
-    int date_added;
-    int frequency;
-    ArrayList<ChecklistItem> checklistItems;
+    private String name;
+    private int id;
+    private int date_added;
+    private int frequency;
+    private ArrayList<ChecklistItem> checklistItems;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setID(int id){
+        this.id = id;
+    }
+
+    public void setDateAdded(int date_added){
+        this.date_added = date_added;
+    }
+
+    public void setFrequency(int frequency){
+        this.frequency = frequency;
+    }
+
+    public void setchecklistItems(ArrayList<ChecklistItem> content){
+        this.checklistItems = content;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getID(){
+        return id;
+    }
+
+    public int getDateAdded(){
+        return  date_added;
+    }
+
+    public int getFrequency(){
+        return frequency;
+    }
+
+    public ArrayList<ChecklistItem> getchecklistItems(){
+        return checklistItems;
+    }
+
+    public void addChecklistItem(ChecklistItem item){
+        this.checklistItems.add(item);
+    }
+
+    public Checklist(String name, int id, int date_added, int frequency, ArrayList<ChecklistItem> checklistItems){
+        this.name = name;
+        this.id = id;
+        this.date_added = date_added;
+        this.frequency = frequency;
+        this.checklistItems = checklistItems;
+    }
 
 }

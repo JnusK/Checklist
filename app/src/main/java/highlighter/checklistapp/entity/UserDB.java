@@ -44,4 +44,6 @@ public class UserDB {
     public UserDB(ArrayList<User> userDB, String user, String password){
         this.userDB = userDB;
     }
+
+
 }

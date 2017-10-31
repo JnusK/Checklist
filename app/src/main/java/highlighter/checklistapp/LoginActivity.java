@@ -71,14 +71,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Creating the initial user DB
-        SQLiteDatabase db = openOrCreateDatabase("App",MODE_PRIVATE,null);
-        //Create table
-        db.execSQL("CREATE TABLE IF NOT EXISTS UserDB(id VARCHAR(10),password VARCHAR(20), user_type INT, create_on TIMESTAMP);");
-        //Insert default user
-        db.execSQL("INSERT INTO UserDB VALUES('admin','admin',1);");
-        //Create checklist table
-        db.execSQL("CREATE TABLE IF NOT EXISTS ChecklistDB(id VARCHAR(10),name VARCHAR(100), content VARCHAR(1024), frequency INT, create_on TIMESTAMP);");
+//        //Creating the initial user DB
+//        SQLiteDatabase db = openOrCreateDatabase("App",MODE_PRIVATE,null);
+//        //Create table
+//        db.execSQL("CREATE TABLE IF NOT EXISTS UserDB(id VARCHAR(10),password VARCHAR(20), user_type INT, create_on TIMESTAMP);");
+//        //Insert default user
+//        db.execSQL("INSERT INTO UserDB VALUES('admin','admin',1);");
+//        //Create checklist table
+//        db.execSQL("CREATE TABLE IF NOT EXISTS ChecklistDB(id VARCHAR(10),name VARCHAR(100), content VARCHAR(1024), frequency INT, create_on TIMESTAMP);");
 
 
 //        SharedPreferences.Editor editor = getSharedPreferences("users", MODE_PRIVATE).edit();

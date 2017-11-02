@@ -3,6 +3,7 @@ package highlighter.checklistapp.boundary;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,13 +11,15 @@ import android.widget.Toast;
 
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.controller.AccessUserDB;
+import highlighter.checklistapp.entity.UserDB;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity{
 
-    public static AccessUserDB accessUserDB;
+    UserDB accessUserDB;
+
 
     TextView name, password;
     Button login_button;
@@ -26,11 +29,13 @@ public class LoginActivity extends AppCompatActivity{
     int authenticate;
 
     protected void onCreate(Bundle savedInstanceState) {
-        accessUserDB = new AccessUserDB(this);
+        accessUserDB = new UserDB(this);
+
         super.onCreate(savedInstanceState);
         addDataToDB();
         setContentView(R.layout.activity_login);
         initialiseView();
+
     }
 
     private void addDataToDB(){

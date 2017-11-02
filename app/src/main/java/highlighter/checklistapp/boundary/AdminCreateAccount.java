@@ -70,11 +70,11 @@ public class AdminCreateAccount extends AdminHomepage {
         username = Integer.parseInt(name.getText().toString());
         user_password = password.getText().toString();
         int currentTime = getCurrentTime();
-        LoginActivity.accessUserDB.addUserToDB(username, user_password, user_type, currentTime);
-        String test1 = LoginActivity.accessUserDB.test;
-        Toast.makeText(AdminCreateAccount.this, test1,
-                Toast.LENGTH_LONG).show();
-        int test = LoginActivity.accessUserDB.authenticateUser(username, user_password);
+//        LoginActivity.accessUserDB.addUserToDB(username, user_password, user_type, currentTime);
+//        String test1 = LoginActivity.accessUserDB.test;
+//        Toast.makeText(AdminCreateAccount.this, test1,
+//                Toast.LENGTH_LONG).show();
+//        int test = LoginActivity.accessUserDB.authenticateUser(username, user_password);
 
     }
 

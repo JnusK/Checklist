@@ -14,6 +14,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import highlighter.checklistapp.entity.User;
 import highlighter.checklistapp.entity.UserDB;
 
 /**
@@ -49,5 +50,17 @@ public class AccessUserDB{
 
     public int changePassword(int user_id, String new_pw){
         return userDB.changePassword(user_id, new_pw);
+    }
+
+    public User getUser(int user_id){
+        return userDB.getUser(user_id);
+    }
+
+    public int updateUser(User user){
+        return userDB.updateUserDB(user);
+    }
+
+    public void deleteUser(int user_id){
+        userDB.deleteUser(user_id);
     }
 }

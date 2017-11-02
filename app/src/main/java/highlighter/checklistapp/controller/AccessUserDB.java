@@ -202,8 +202,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
         + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PASSWORD + " TEXT,"
         + KEY_TYPE + " INTEGER," + KEY_DATE_ADDED + " INTEGER" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
-        Log.w("userDB", "created");
-        System.out.println("onCreate running");
+        Log.w("userDB", "DB created");
 
 
     }

@@ -26,6 +26,9 @@ public class LoginActivity extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         accessUserDB = new AccessUserDB(this);
+        accessUserDB.addUserToDB(12345, "admin", 1, 0);
+        accessUserDB.authenticateUser(12345, "admin");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initialiseView();

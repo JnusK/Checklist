@@ -7,16 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.controller.AccessUserDB;
+import highlighter.checklistapp.UserDAO;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity{
-
-    public static AccessUserDB accessUserDB;
 
     TextView name, password;
     Button login_button;
@@ -26,23 +23,16 @@ public class LoginActivity extends AppCompatActivity{
     int authenticate;
 
     protected void onCreate(Bundle savedInstanceState) {
-        accessUserDB = new AccessUserDB(this);
         super.onCreate(savedInstanceState);
-        addDataToDB();
         setContentView(R.layout.activity_login);
         initialiseView();
     }
 
-    private void addDataToDB(){
-        accessUserDB.addUserToDB(12345, "admin", 1, 0);
-        accessUserDB.addUserToDB(234, "tech", 0, 0);
-    }
 
     private void initialiseView(){
         name = findViewById(R.id.login_name);
         password = findViewById(R.id.login_password);
         login_button = findViewById(R.id.login_button);
-
 
         login_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -50,10 +40,10 @@ public class LoginActivity extends AppCompatActivity{
                 user_password = password.getText().toString();
                 admin_i= new Intent(LoginActivity.this, AdminHomepage.class);
                 user_i = new Intent(LoginActivity.this, UserHomepage.class);
-                authenticate = accessUserDB.authenticateUser(username, user_password);
+                authenticate = UserDAO.accessUserDB.authenticateUser(username, user_password);
                 if (authenticate == 1) {
                     //user and password correct
-                    int user_type = accessUserDB.checkUserType(username);
+                    int user_type = UserDAO.accessUserDB.checkUserType(username);
                     if (user_type == 1) {
                         //admin
                         startActivity(admin_i);

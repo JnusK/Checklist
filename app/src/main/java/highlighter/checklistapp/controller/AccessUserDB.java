@@ -1,10 +1,5 @@
 package highlighter.checklistapp.controller;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-import org.json.JSONStringer;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import highlighter.checklistapp.entity.User;
 import highlighter.checklistapp.entity.UserDB;
@@ -137,8 +131,8 @@ public class AccessUserDB extends SQLiteOpenHelper{
          * Add account to DB
          * return 1 if successful and 0 if user exist
          */
-        Log.i("userDB", "trying to add user");
-        if(this.findUser(id) == 1){
+        Log.i("userDB", "trying to add user" + id);
+        if(this.findUser(id) != -1){
             return 0;
         }
 

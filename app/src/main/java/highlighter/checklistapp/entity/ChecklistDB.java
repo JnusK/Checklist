@@ -24,6 +24,13 @@ public class ChecklistDB {
     ArrayList<Checklist> checklistDB;
     int frequency;
 
+    public ChecklistDB(){};
+
+    public ChecklistDB(ArrayList<Checklist> checklistDB, int frequency){
+        this.checklistDB = checklistDB;
+        this.frequency = frequency;
+    }
+
     public ArrayList<Checklist> getCheckLists(){
         return checklistDB;
     }

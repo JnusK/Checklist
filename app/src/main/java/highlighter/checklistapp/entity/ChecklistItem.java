@@ -5,9 +5,14 @@ package highlighter.checklistapp.entity;
  */
 
 public class ChecklistItem {
+    private int checklist_id;
     private int id;
     private String description;
     private int serviceability;
+
+    public void setChecklistID(int checklist_id) {
+        this.checklist_id = checklist_id;
+    }
 
     public void setID(int id){
         this.id = id;
@@ -19,6 +24,10 @@ public class ChecklistItem {
 
     public void setServiceability(int serviceability){
         this.serviceability = serviceability;
+    }
+
+    public int getChecklistID() {
+        return checklist_id;
     }
 
     public int getId(){
@@ -33,7 +42,8 @@ public class ChecklistItem {
         return serviceability;
     }
 
-    public ChecklistItem(int id, String description, int serviceability){
+    public ChecklistItem(int checklist_id, int id, String description, int serviceability){
+        this.checklist_id = checklist_id;
         this.id = id;
         this.description = description;
         this.serviceability = serviceability;

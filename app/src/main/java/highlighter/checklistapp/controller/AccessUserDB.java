@@ -46,16 +46,17 @@ public class AccessUserDB extends SQLiteOpenHelper{
 
     }
 
+    //For debugging to check if the database exist
     public void checkDB(){
         try{
             SQLiteDatabase db = this.getWritableDatabase();
             db.close();
-            Log.w("userDB", "exist");
+            Log.w("userDB", "DB exist");
         }catch (Exception e) {
 
             Log.i(getClass().getName(), e.toString());
             System.out.print(e);
-            System.out.println("Not working");
+            Log.w("userDB","DB does not exist");
         }
     }
 
@@ -67,9 +68,11 @@ public class AccessUserDB extends SQLiteOpenHelper{
         ArrayList<User> users = userDB.getUsers();
         for (int x=0; x<users.size(); x++) {
             if (users.get(x).getID()==(user_id)) {
+                Log.w("userDB", "user exist");
                 return x;
             }
         }
+        Log.w("userDB", "user does not exist");
         return -1;
     }
 
@@ -80,8 +83,10 @@ public class AccessUserDB extends SQLiteOpenHelper{
          */
         ArrayList<User> users = userDB.getUsers();
         if(users.get(index).getPassword().equals(password)){
+            Log.w("userDB", "pw correct");
             return 1;
         }
+        Log.w("userDB", "pw not correct");
         return 0;
 
     }
@@ -103,7 +108,10 @@ public class AccessUserDB extends SQLiteOpenHelper{
             return -1;
         }
         //successful authentication
-        else return 1;
+        else {
+            Log.w("userDB", "user authenticated");
+            return 1;
+        }
     }
 
 
@@ -115,6 +123,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
         ArrayList<User> users = userDB.getUsers();
         for (int x=0; x<users.size(); x++) {
             if (users.get(x).getID()==(user_id)) {
+                Log.w("userDB", "usertype verified");
                 return users.get(x).getType();
             }
         }
@@ -127,7 +136,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
          * Add account to DB
          * return 1 if successful and 0 if user exist
          */
-        Log.i("userDB", "trying to add");
+        Log.i("userDB", "trying to add user");
         if(this.findUser(id) == 1){
             return 0;
         }

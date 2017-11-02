@@ -170,6 +170,9 @@ public class AccessUserDB extends SQLiteOpenHelper{
                 return users;
             }
         }
+
+        //TODO: Update the DB as well
+
         return users;
     }
 

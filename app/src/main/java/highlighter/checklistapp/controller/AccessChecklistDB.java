@@ -35,8 +35,8 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
     private static final String ITEM_CHECKLIST_ID = "checklist_id"; //a column to hold the id of the checklist it belongs to
     private static final String ITEM_ID = "id";
-    private static final String ITEM_DESC = "desc";
-    private static final String ITEM_SERV = "serv";
+    private static final String ITEM_DESC = "description";
+    private static final String ITEM_SERV = "serviceability";
 
     ArrayList<ChecklistItem> checklistItemArrayList = new ArrayList<ChecklistItem>();
 
@@ -44,6 +44,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
     public AccessChecklistDB(Context context){
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
 
@@ -72,18 +73,16 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
          */
 
 
-
-
     }
 
 
 
 
     public int addCheckListItemsToDB(int checklist_id, int id, String description, int serviceability){
-
-
-        //Adds a checklistitem to the DB. 1 if successfull, 0 if not
-
+        /**
+         * Adds a checklistitem to the DB.
+         * 1 if successfull, 0 if not
+         */
 
         ChecklistItem cli = new ChecklistItem(checklist_id, id, description, serviceability);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -96,6 +95,8 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         db.insert(TABLE_CHECKLISTITEMS , null , values);
         db.close();
 
+        //TODO: Add created item to the corresponding checklist
+
         return 1;
 
     }
@@ -105,7 +106,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
     public int addChecklistToDB(String name, int id, int date_added, int frequency, ArrayList<ChecklistItem> checklistItems){
 
 
-        //Adds a checklist to the DB. 1 if successfull, 0 if not
+        //Adds a checklist to the DB. 1 if successful, 0 if not
 
         Checklist cl = new Checklist(name,id,date_added,frequency,checklistItems);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -119,7 +120,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         db.close();
 
 
-
+        //TODO: Add checklist to checklistDB
 
 
         return 1;
@@ -161,9 +162,9 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
 
-    public List<Checklist> getAllChecklist(){
+    public ArrayList<Checklist> getAllChecklist(){
 
-        List<Checklist> checkList = new ArrayList<Checklist>();
+        ArrayList<Checklist> checkList = new ArrayList<Checklist>();
 
         String selectQuery = "SELECT * FROM " + TABLE_CHECKLISTS;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -181,23 +182,35 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
                 //Add the checklist to the list
                 checkList.add(check);
 
-
             }
             while(cursor.moveToNext());
-
-
-
         }
-
-
         return checkList;
-
-
-
     }
 
 
+    public ArrayList<ChecklistItem> getChecklistItems(int checklist_id){
+        ArrayList<ChecklistItem> checklistItems = new ArrayList<>();
 
+        String selectQuery = "SELECT * FROM " + TABLE_CHECKLISTITEMS + " WHERE " + ITEM_ID + " = " + checklist_id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery , null);
+
+        if(cursor.moveToFirst()){
+
+            do {
+                ChecklistItem item = new ChecklistItem(0, 0, "", 0);
+                item.setChecklistID(cursor.getInt(0));
+                item.setID(cursor.getInt(1));
+                item.setDescription(cursor.getString(2));
+                item.setServiceability(cursor.getInt(3));
+                //Add the checklist to the list
+                checklistItems.add(item);
+            }
+            while(cursor.moveToNext());
+        }
+        return checklistItems;
+    }
 
 
     @Override
@@ -210,8 +223,8 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_CHECKLIST_TABLE);
 
         String CREATE_ITEM_TABLE = "CREATE TABLE " + TABLE_CHECKLISTITEMS + "("
-                + ITEM_CHECKLIST_ID + " INTEGER PRIMARY KEY,"
-                + ITEM_ID + " INTEGER," + ITEM_DESC + " TEXT,"
+                + ITEM_CHECKLIST_ID + " INTEGER,"
+                + ITEM_ID + " INTEGER PRIMARY KEY," + ITEM_DESC + " TEXT,"
                 + ITEM_SERV + " INTEGER" + ")";
         sqLiteDatabase.execSQL(CREATE_ITEM_TABLE);
 

@@ -42,6 +42,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
     public AccessUserDB(Context context) {
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        userArray = getAllUsers();
 
     }
 
@@ -164,8 +165,8 @@ public class AccessUserDB extends SQLiteOpenHelper{
     }
 
     // Getting All Users
-    public List<User> getAllUsers() {
-        List<User> userList = new ArrayList<User>();
+    public ArrayList<User> getAllUsers() {
+        ArrayList<User> userList = new ArrayList<User>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_USERS;
         SQLiteDatabase db = this.getWritableDatabase();

@@ -13,6 +13,16 @@ public class Checklist {
     private int date_added;
     private int frequency;
     private ArrayList<ChecklistItem> checklistItems;
+    private int last_edit_date;
+    private int last_edit_user_id;
+
+    public void setLast_edit_date(int last_edit_date) {
+        this.last_edit_date = last_edit_date;
+    }
+
+    public void setLast_edit_user_id(int last_edit_user_id) {
+        this.last_edit_user_id = last_edit_user_id;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -36,6 +46,15 @@ public class Checklist {
 
     public String getName(){
         return name;
+    }
+
+
+    public int getLast_edit_date() {
+        return last_edit_date;
+    }
+
+    public int getLast_edit_user_id() {
+        return last_edit_user_id;
     }
 
     public int getID(){

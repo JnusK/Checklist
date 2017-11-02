@@ -35,6 +35,13 @@ public class ChecklistDB {
         return checklistDB;
     }
 
+    public void addChecklist(Checklist check){
+
+
+        checklistDB.add(check);
+
+    }
+
     public int update(int servicable, int checklist_id, int checklist_item_no){
 
         return 1;

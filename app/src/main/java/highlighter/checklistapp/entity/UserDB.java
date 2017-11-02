@@ -125,7 +125,7 @@ public class UserDB extends SQLiteOpenHelper {
          * Add account to DB
          * return 1 if successful and 0 if user exist
          */
-        if(this.findUser(id) == 1){
+        if(this.findUser(id) != -1){
             return 0;
         }
 
@@ -250,4 +250,5 @@ public class UserDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
+
 

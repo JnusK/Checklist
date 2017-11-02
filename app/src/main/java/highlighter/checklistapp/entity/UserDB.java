@@ -41,7 +41,7 @@ public class UserDB {
         return userDB;
     }
 
-    public UserDB(ArrayList<User> userDB, String user, String password){
+    public UserDB(ArrayList<User> userDB){
         this.userDB = userDB;
     }
 

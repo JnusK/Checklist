@@ -6,20 +6,20 @@ package highlighter.checklistapp.entity;
 
 public class User {
 
-    private String id;
+    private int id;
     private String password;
     private int type;
     private int date_added;
 
-    public User(String id, String password, int type, int date_added){
+    public User(int id, String password, int type, int date_added){
         this.id = id;
         this.password = password;
         this.type = type;
         this.date_added = date_added;
     }
 
-    public void setID(String user){
-        this.id = user;
+    public void setID(int id){
+        this.id = id;
     }
 
     public void setPassword(String password){
@@ -34,7 +34,7 @@ public class User {
         this.date_added = date_added;
     }
 
-    public String getID(){
+    public int getID(){
         return id;
     }
 

@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import highlighter.checklistapp.entity.UserDB;
 public class AccessUserDB extends SQLiteOpenHelper{
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
     // Database Name
     private static final String DATABASE_NAME = "UserDB";
     // Contacts table name
@@ -36,20 +37,35 @@ public class AccessUserDB extends SQLiteOpenHelper{
     private static final String KEY_DATE_ADDED = "date_added";
 
     ArrayList<User> userArray = new ArrayList<User>();
-    public UserDB userDB = new UserDB(userArray, "", "");
+    public UserDB userDB = new UserDB(userArray);
 
     public AccessUserDB(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
-    public int findUser(String user_id){
+    public void checkDB(){
+        try{
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.close();
+            Log.w("userDB", "exist");
+        }catch (Exception e) {
+
+            Log.i(getClass().getName(), e.toString());
+            System.out.print(e);
+            System.out.println("Not working");
+        }
+    }
+
+    public int findUser(int user_id){
         /**
          * Used to check if user exist in DB.
          * Return the index when exist and -1 when does not exist
          */
         ArrayList<User> users = userDB.getUsers();
         for (int x=0; x<users.size(); x++) {
-            if (users.get(x).getID().equals(user_id)) {
+            if (users.get(x).getID()==(user_id)) {
                 return x;
             }
         }
@@ -69,7 +85,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
 
     }
 
-    public int authenticateUser(String id, String password){
+    public int authenticateUser(int id, String password){
         /**
          * Check user and password against user database
          * return 1 if successful
@@ -90,14 +106,14 @@ public class AccessUserDB extends SQLiteOpenHelper{
     }
 
 
-    public int checkUserType(String user_id){
+    public int checkUserType(int user_id){
         /**
          * Check if user is admin or user
          * 1 is admin, 0 is user, -1 is invalid
          */
         ArrayList<User> users = userDB.getUsers();
         for (int x=0; x<users.size(); x++) {
-            if (users.get(x).getID().equals(user_id)) {
+            if (users.get(x).getID()==(user_id)) {
                 return users.get(x).getType();
             }
         }
@@ -105,12 +121,12 @@ public class AccessUserDB extends SQLiteOpenHelper{
     }
 
 
-    public int addUserToDB(String id, String password, int type, int date_added){
+    public int addUserToDB(int id, String password, int type, int date_added){
         /**
          * Add account to DB
          * return 1 if successful and 0 if user exist
          */
-
+        Log.i("userDB", "trying to add");
         if(this.findUser(id) == 1){
             return 0;
         }
@@ -132,14 +148,14 @@ public class AccessUserDB extends SQLiteOpenHelper{
         return 1;
     }
 
-    public ArrayList<User> changePW(String user_id, String new_pw){
+    public ArrayList<User> changePW(int user_id, String new_pw){
         /**
          * Allow user to change pw
          * 1 is successful, 0 is unsuccessful
          */
         ArrayList<User> users = userDB.getUsers();
         for (int x=0; x<users.size(); x++) {
-            if (users.get(x).getID().equals(user_id)) {
+            if (users.get(x).getID()==(user_id)) {
                 users.get(x).setPassword(new_pw);
                 return users;
             }
@@ -157,8 +173,8 @@ public class AccessUserDB extends SQLiteOpenHelper{
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                User user = new User("", "", 0, 0);
-                user.setID(cursor.getString(0));
+                User user = new User(0, "", 0, 0);
+                user.setID(cursor.getInt(0));
                 user.setPassword(cursor.getString(1));
                 user.setType(cursor.getInt(2));
                 user.setDateAdded(cursor.getInt(3));
@@ -174,8 +190,12 @@ public class AccessUserDB extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
         + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PASSWORD + " TEXT,"
-        + KEY_TYPE + " INTEGER" + KEY_DATE_ADDED + "INTEGER" + ")";
+        + KEY_TYPE + " INTEGER," + KEY_DATE_ADDED + " INTEGER" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
+        Log.w("userDB", "created");
+        System.out.println("onCreate running");
+
+
     }
 
     @Override

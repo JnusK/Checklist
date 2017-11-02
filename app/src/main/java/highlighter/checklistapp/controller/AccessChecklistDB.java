@@ -41,19 +41,19 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
     private static final String ITEM_SERV = "serviceability";
 
     ArrayList<ChecklistItem> checklistItemArrayList = new ArrayList<ChecklistItem>();
-    ChecklistDB checklistDB = new ChecklistDB();
+    ChecklistDB checklistDB = new ChecklistDB(new ArrayList<Checklist>() , 0);
 
 
     public void checkDB(){
         try{
             SQLiteDatabase db = this.getWritableDatabase();
             db.close();
-            Log.w("userDB", "DB exist");
+            Log.w("accessDB", "DB exist");
         }catch (Exception e) {
 
             Log.i(getClass().getName(), e.toString());
             System.out.print(e);
-            Log.w("userDB","DB does not exist");
+            Log.w("accessDB","DB does not exist");
         }
     }
 
@@ -70,23 +70,23 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         /**
          * Find the checklists that are of the frequency selected and return their id
          */
-
-
-        ArrayList<Checklist> checklistArrayList = checklistDB.getCheckLists();
         ArrayList<Integer> checklist_id_array = new ArrayList<Integer>();
 
-        for (int i = 0; i < checklistArrayList.size(); i++){
+        String selectQuery = "SELECT * FROM " + TABLE_CHECKLISTS + " WHERE "
+                +CHECKLIST_FREQUENCY +   "=" +  "'" + frequency_id + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery , null);
+        if(cursor.moveToFirst()){
 
-
-            if(checklistArrayList.get(i).getFrequency() == frequency_id){
-
-            checklist_id_array.add(checklistArrayList.get(i).getID());
-
-
+            do {
+                checklist_id_array.add(cursor.getInt(2));
             }
-
+            while(cursor.moveToNext());
 
         }
+
+
+
 
         return checklist_id_array;
 
@@ -146,19 +146,24 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
         db.insert(TABLE_CHECKLISTITEMS , null , values);
         db.close();
-
+        Log.i("accessDB","addChecklist items to db");
         //TODO: Add created item to the corresponding checklist
-        for(int i = 0 ; i < checklistDB.getCheckLists().size(); i++){
-
-            if(checklistDB.getCheckLists().get(i).getID() == checklist_id){
-
-                checklistDB.getCheckLists().get(i).addChecklistItem(cli);
 
 
+       if(checklistDB.getCheckLists()!= null) {
+            for (int i = 0; i < checklistDB.getCheckLists().size(); i++) {
+
+                if(checklistDB.getCheckLists().get(i) != null) {
+
+                    if (checklistDB.getCheckLists().get(i).getID() == checklist_id) {
+
+                        checklistDB.getCheckLists().get(i).addChecklistItem(cli);
+
+
+                    }
+                }
 
             }
-
-
         }
         //Checklist items are now added into the respective checklist in the checklistDB
 
@@ -185,9 +190,11 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
         db.insert(TABLE_CHECKLISTS ,null, values);
         db.close();
+        Log.i("accessDB","addChecklist to db");
 
 
         //TODO: Add checklist to checklistDB
+        cl.setchecklistItems(new ArrayList<ChecklistItem>()); //setup the checklistitems in the checklist
         checklistDB.addChecklist(cl);
         //Add checklist to checklistDB
 
@@ -195,16 +202,16 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         return 1;
     }
 
-    public List<ChecklistItem> selectCheckListItems(int checklist_id){
+    public ArrayList<ChecklistItem> selectCheckListItems(int checklist_id){
 
         //checklist_id is the id of the checklist
         //gets all the checklistitems based on the checklist_id provided into a list
 
-        List<ChecklistItem> checkListItem = new ArrayList<ChecklistItem>();
+        ArrayList<ChecklistItem> checkListItem = new ArrayList<ChecklistItem>();
 
 
         String selectQuery = "SELECT * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
-                +ITEM_CHECKLIST_ID +   " = " + checklist_id;
+                +ITEM_CHECKLIST_ID +   "=" +  "'" + checklist_id + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery , null);
         if(cursor.moveToFirst()){
@@ -229,7 +236,11 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Checklist> getAllChecklistFromDB(){
 
+        return checklistDB.getCheckLists();
+
+    }
 
     public ArrayList<Checklist> getAllChecklist(){
 
@@ -249,11 +260,20 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
                 check.setFrequency(cursor.getInt(2));
                 check.setDateAdded(cursor.getInt(3));
                 //Add the checklist to the list
+
+                check.setchecklistItems(selectCheckListItems(check.getID()));
+
+
+
+
                 checkList.add(check);
 
             }
             while(cursor.moveToNext());
         }
+
+
+
         return checkList;
     }
 
@@ -296,6 +316,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
                 + ITEM_ID + " INTEGER PRIMARY KEY," + ITEM_DESC + " TEXT,"
                 + ITEM_SERV + " INTEGER" + ")";
         sqLiteDatabase.execSQL(CREATE_ITEM_TABLE);
+        Log.w("checklistDB", "DB created");
 
 
     }

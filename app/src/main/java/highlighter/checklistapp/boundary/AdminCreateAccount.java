@@ -2,20 +2,14 @@ package highlighter.checklistapp.boundary;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.controller.AccessUserDB;
+import highlighter.checklistapp.UserDAO;
 
 /**
  * Created by Spencer on 20/10/2017.
@@ -70,12 +64,7 @@ public class AdminCreateAccount extends AdminHomepage {
         username = Integer.parseInt(name.getText().toString());
         user_password = password.getText().toString();
         int currentTime = getCurrentTime();
-//        LoginActivity.accessUserDB.addUserToDB(username, user_password, user_type, currentTime);
-//        String test1 = LoginActivity.accessUserDB.test;
-//        Toast.makeText(AdminCreateAccount.this, test1,
-//                Toast.LENGTH_LONG).show();
-//        int test = LoginActivity.accessUserDB.authenticateUser(username, user_password);
-
+        UserDAO.accessUserDB.addUserToDB(username, user_password, user_type, currentTime);
     }
 
     private int getCurrentTime(){

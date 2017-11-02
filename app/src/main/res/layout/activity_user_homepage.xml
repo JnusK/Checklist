@@ -28,7 +28,6 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/user_homepage_next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/user_homepage_spinner"

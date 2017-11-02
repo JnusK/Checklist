@@ -16,15 +16,15 @@
 
     <EditText
         android:id="@+id/admin_edit_account_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/admin_edit_account_create"
         android:layout_alignStart="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="26dp"
         android:ems="10"
-        android:hint="@string/prompt_email"
-        android:inputType="textPersonName" />
+        android:hint="Employee ID"
+        android:inputType="number"  />
 
     <EditText
         android:id="@+id/admin_edit_account_password"
@@ -35,16 +35,42 @@
         android:layout_below="@+id/admin_edit_account_name"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/prompt_password"
+        android:hint="Password"
         android:inputType="textPassword" />
+
+    <RadioGroup
+        android:id="@+id/admin_edit_account_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/admin_edit_account_password"
+        android:layout_alignEnd="@+id/admin_edit_account_name"
+        android:layout_below="@+id/admin_edit_account_password"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp" >
+
+        <RadioButton
+            android:id="@+id/admin_edit_account_radio_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Admin" />
+
+        <RadioButton
+            android:id="@+id/admin_edit_account_radio_technician"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Technician" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/admin_edit_account_create"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="21dp"
+        android:layout_alignEnd="@+id/admin_edit_account_name"
+        android:layout_below="@+id/admin_edit_account_radio_group"
+        android:layout_marginTop="46dp"
         android:text="Save" />
+
 </RelativeLayout>

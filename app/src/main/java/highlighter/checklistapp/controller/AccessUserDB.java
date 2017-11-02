@@ -23,7 +23,7 @@ import highlighter.checklistapp.entity.UserDB;
  */
 
 public class AccessUserDB extends SQLiteOpenHelper{
-
+    public String test = "true";
     // Database Version
     private static final int DATABASE_VERSION = 5;
     // Database Name
@@ -43,6 +43,7 @@ public class AccessUserDB extends SQLiteOpenHelper{
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         userArray = getAllUsers();
+
 
     }
 

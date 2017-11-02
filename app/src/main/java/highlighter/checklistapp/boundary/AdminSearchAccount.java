@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -21,6 +22,7 @@ public class AdminSearchAccount extends AppCompatActivity {
     EditText search_filter;
     ArrayAdapter adapter;
     ArrayList<String> account_names;
+    Button add_account_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +34,9 @@ public class AdminSearchAccount extends AppCompatActivity {
     }
 
     private void initialiseView(){
-        account_list = (ListView) findViewById(R.id.admin_search_account_search_accounts_list);
-        search_filter = (EditText) findViewById(R.id.admin_search_account_search_filter);
+        account_list = findViewById(R.id.admin_search_account_search_accounts_list);
+        search_filter = findViewById(R.id.admin_search_account_search_filter);
+        add_account_button = findViewById(R.id.admin_search_account_search_add_button);
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, account_names);
         account_list.setAdapter(adapter);
@@ -48,6 +51,13 @@ public class AdminSearchAccount extends AppCompatActivity {
 
                 Intent i = new Intent(AdminSearchAccount.this, AdminEditAccount.class);
                 i.putExtra("selected_item", selected_item);
+                startActivity(i);
+            }
+        });
+
+        add_account_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i= new Intent(AdminSearchAccount.this, AdminCreateAccount.class);
                 startActivity(i);
             }
         });

@@ -13,7 +13,8 @@ public class AdminEditAccount extends AppCompatActivity {
 
     TextView name, password;
     Button create_button;
-    String username, user_password;
+    String user_password;
+    int username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class AdminEditAccount extends AppCompatActivity {
 
     //edit this
     private void updateAccount(){
-        username = name.getText().toString();
+        username = Integer.parseInt(name.getText().toString());
         user_password = password.getText().toString();
     }
 

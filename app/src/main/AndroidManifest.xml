@@ -11,6 +11,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:windowSoftInputMode="stateVisible"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -28,7 +29,8 @@
         <activity android:name=".boundary.AdminCreateAccount" />
         <activity android:name=".boundary.UserDetailedChecklistPage" />
         <activity android:name=".boundary.AdminSearchAccount" />
-        <activity android:name=".boundary.AdminEditAccount" />
+        <activity android:name=".boundary.AdminEditAccount" >
+        </activity>
         <activity android:name=".boundary.AdminSearchChecklist" />
         <activity android:name=".boundary.AdminEditChecklist"></activity>
     </application>

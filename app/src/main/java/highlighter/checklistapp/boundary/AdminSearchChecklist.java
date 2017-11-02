@@ -36,8 +36,8 @@ public class AdminSearchChecklist extends AppCompatActivity {
 
 
     private void initialiseView(){
-        add_checklist = (Button) findViewById(R.id.admin_search_checklist_add_button);
-        frequency_spinner = (Spinner) findViewById(R.id.admin_search_checklist_spinner);
+        add_checklist = findViewById(R.id.admin_search_checklist_add_button);
+        frequency_spinner = findViewById(R.id.admin_search_checklist_spinner);
 
         add_checklist.setOnClickListener(new View.OnClickListener() {
             @Override

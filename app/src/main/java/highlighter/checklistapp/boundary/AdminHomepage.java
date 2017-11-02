@@ -17,25 +17,12 @@ public class AdminHomepage extends LoginActivity implements OnClickListener {
         Intent i;
         switch(view.getId())
         {
-
-            //To be updated, Spencer 19/10/2017
-            case R.id.admin_homepage_textViewcreate:
-                i = new Intent(AdminHomepage.this, AdminCreateAccount.class);
-                startActivity(i);
-                break;
-            case R.id.admin_homepage_textViewedit:
+            case R.id.admin_homepage_manage_account_button:
                 i = new Intent(AdminHomepage.this, AdminSearchAccount.class);
                 startActivity(i);
                 break;
-            case R.id.admin_homepage_textViewmodify:
-                i = new Intent(AdminHomepage.this, UserHomepage.class);
-                startActivity(i);
-                break;
-            case R.id.admin_homepage_textViewstatus:
-                i = new Intent(AdminHomepage.this, UserHomepage.class);
-                startActivity(i);
-                break;
-            case R.id.admin_homepage_textViewchecklist:
+
+            case R.id.admin_homepage_manage_checklist_button:
                 i = new Intent(AdminHomepage.this, AdminSearchChecklist.class);
                 startActivity(i);
                 break;

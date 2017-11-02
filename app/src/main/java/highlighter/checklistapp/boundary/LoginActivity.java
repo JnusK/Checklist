@@ -16,22 +16,26 @@ import highlighter.checklistapp.controller.AccessUserDB;
  */
 public class LoginActivity extends AppCompatActivity{
 
+    public static AccessUserDB accessUserDB;
+
     TextView name, password;
     Button login_button;
     int username;
     String user_password;
-    AccessUserDB accessUserDB;
     Intent admin_i, user_i;
     int authenticate;
 
     protected void onCreate(Bundle savedInstanceState) {
         accessUserDB = new AccessUserDB(this);
-        accessUserDB.addUserToDB(12345, "admin", 1, 0);
-        accessUserDB.authenticateUser(12345, "admin");
-
         super.onCreate(savedInstanceState);
+        addDataToDB();
         setContentView(R.layout.activity_login);
         initialiseView();
+    }
+
+    private void addDataToDB(){
+        accessUserDB.addUserToDB(12345, "admin", 1, 0);
+        accessUserDB.addUserToDB(234, "tech", 0, 0);
     }
 
     private void initialiseView(){

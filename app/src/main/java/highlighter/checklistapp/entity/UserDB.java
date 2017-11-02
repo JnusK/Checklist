@@ -29,12 +29,12 @@ public class UserDB extends SQLiteOpenHelper {
     private static final String KEY_TYPE = "type";
     private static final String KEY_DATE_ADDED = "date_added";
 
-    ArrayList<User> userArray = new ArrayList<User>();
+   // ArrayList<User> userArray = new ArrayList<User>();
 
     public UserDB(Context context) {
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        userArray = getAllUsers();
+        //userArray = getAllUsers();
 
     }
 
@@ -59,6 +59,7 @@ public class UserDB extends SQLiteOpenHelper {
          * Used to check if user exist in DB.
          * Return the index when exist and -1 when does not exist
          */
+        ArrayList<User> userArray = getAllUsers();
         for (int x=0; x<userArray.size(); x++) {
             if (userArray.get(x).getID()==(user_id)) {
                 Log.w("userDB", "user exist");
@@ -74,6 +75,7 @@ public class UserDB extends SQLiteOpenHelper {
          * Check if pw provided by user tallies with DB
          * Return 1 when correct and 0 when incorrect
          */
+        ArrayList<User> userArray = getAllUsers();
         if(userArray.get(index).getPassword().equals(password)){
             Log.w("userDB", "pw correct");
             return 1;
@@ -110,15 +112,11 @@ public class UserDB extends SQLiteOpenHelper {
     public int checkUserType(int user_id){
         /**
          * Check if user is admin or user
-         * 1 is admin, 0 is user, -1 is invalid
+         * 1 is admin, 0 is user
          */
-        for (int x=0; x<userArray.size(); x++) {
-            if (userArray.get(x).getID()==(user_id)) {
-                Log.w("userDB", "usertype verified");
-                return userArray.get(x).getType();
-            }
-        }
-        return -1;
+        User user = getUser(user_id);
+        Log.w("userDB", "Type returned");
+        return user.getType();
     }
 
 
@@ -144,7 +142,7 @@ public class UserDB extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close(); // Closing database connection
         //Add into object
-        userArray.add(user);
+        //userArray.add(user);
         Log.w("userDB", "User added");
         return 1;
     }
@@ -154,12 +152,14 @@ public class UserDB extends SQLiteOpenHelper {
          * Allow user to change pw
          * 1 is successful, 0 is unsuccessful
          */
+        ArrayList<User> userArray = getAllUsers();
         for (int x=0; x<userArray.size(); x++) {
             if (userArray.get(x).getID()==(user_id)) {
                 //Update object
                 userArray.get(x).setPassword(new_pw);
                 //Update DB
                 int reply = updateUserDB(userArray.get(x));
+                Log.w("userDB", "Password changed");
                 return 1;
             }
         }
@@ -173,7 +173,8 @@ public class UserDB extends SQLiteOpenHelper {
         values.put(KEY_PASSWORD, user.getPassword());
         values.put(KEY_TYPE, user.getType());
         values.put(KEY_DATE_ADDED, user.getDateAdded());
-// updating row
+        Log.w("userDB", "Updating user");
+        // updating row
         return db.update(TABLE_USERS, values, KEY_ID + " = ?",
                 new String[]{String.valueOf(user.getID())});
     }
@@ -202,6 +203,33 @@ public class UserDB extends SQLiteOpenHelper {
         return userList;
     }
 
+    // Getting one user
+    public User getUser(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_USERS, new String[] { KEY_ID,
+                        KEY_PASSWORD, KEY_TYPE, KEY_DATE_ADDED }, KEY_ID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+        User user = new User((cursor.getInt(0)),
+                cursor.getString(1), cursor.getInt(2), cursor.getInt(3));
+        // return user
+        return user;
+    }
+
+    // Deleting a user
+    public void deleteUser(int user_id) {
+        int index = findUser(user_id);
+        //remove from obj
+        //userArray.remove(index);
+        //remove from DB
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_USERS, KEY_ID + " = ?",
+                new String[] { String.valueOf(user_id) });
+        db.close();
+        Log.w("userDB", "User Deleted");
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
@@ -222,3 +250,4 @@ public class UserDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
+

@@ -106,8 +106,6 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
 
-
-
     }
 
     public ArrayList<Checklist> findChecklist(int checklist_id){
@@ -225,7 +223,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
         String selectQuery = "SELECT * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
-                +ITEM_CHECKLIST_ID +   "=" +  "'" + checklist_id + "'";
+                +ITEM_ID +   "=" +  "'" + checklist_id + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery , null);
         if(cursor.moveToFirst()){
@@ -327,7 +325,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
         String CREATE_ITEM_TABLE = "CREATE TABLE " + TABLE_CHECKLISTITEMS + "("
                 + ITEM_CHECKLIST_ID + " INTEGER,"
-                + ITEM_ID + " INTEGER PRIMARY KEY," + ITEM_DESC + " TEXT,"
+                + ITEM_ID + " INTEGER," + ITEM_DESC + " TEXT,"
                 + ITEM_SERV + " INTEGER" + ")";
         sqLiteDatabase.execSQL(CREATE_ITEM_TABLE);
         Log.w("checklistDB", "DB created");

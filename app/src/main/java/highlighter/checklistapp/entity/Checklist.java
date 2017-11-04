@@ -11,7 +11,7 @@ public class Checklist {
     private String name;
     private int id;
     private int date_added;
-    private int frequency;
+    private String frequency;
     private ArrayList<ChecklistItem> checklistItems;
     private int last_edit_date;
     private int last_edit_user_id;
@@ -36,7 +36,7 @@ public class Checklist {
         this.date_added = date_added;
     }
 
-    public void setFrequency(int frequency){
+    public void setFrequency(String frequency){
         this.frequency = frequency;
     }
 
@@ -65,7 +65,7 @@ public class Checklist {
         return  date_added;
     }
 
-    public int getFrequency(){
+    public String getFrequency(){
         return frequency;
     }
 
@@ -90,7 +90,7 @@ public class Checklist {
     }
 
 
-    public Checklist(String name, int id, int date_added, int frequency, ArrayList<ChecklistItem> checklistItems){
+    public Checklist(String name, int id, int date_added, String frequency, ArrayList<ChecklistItem> checklistItems){
         this.name = name;
         this.id = id;
         this.date_added = date_added;

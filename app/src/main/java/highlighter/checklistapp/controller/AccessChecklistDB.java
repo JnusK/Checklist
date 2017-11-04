@@ -41,7 +41,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
     private static final String ITEM_SERV = "serviceability";
 
     ArrayList<ChecklistItem> checklistItemArrayList = new ArrayList<ChecklistItem>();
-    ChecklistDB checklistDB = new ChecklistDB(new ArrayList<Checklist>() , 0);
+    ChecklistDB checklistDB = new ChecklistDB(new ArrayList<Checklist>() , "");
 
 
     public void checkDB(){
@@ -66,11 +66,11 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
 
-    public  ArrayList<Integer> findChecklistByFrequency(int frequency_id){
+    public  ArrayList<Checklist> findChecklistByFrequency(String frequency_id){
         /**
          * Find the checklists that are of the frequency selected and return their id
          */
-        ArrayList<Integer> checklist_id_array = new ArrayList<Integer>();
+        ArrayList<Checklist> checklist_array = new ArrayList<Checklist>();
 
         String selectQuery = "SELECT * FROM " + TABLE_CHECKLISTS + " WHERE "
                 +CHECKLIST_FREQUENCY +   "=" +  "'" + frequency_id + "'";
@@ -79,7 +79,21 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
 
             do {
-                checklist_id_array.add(cursor.getInt(2));
+
+
+
+                Checklist check = new Checklist("", 0, 0, "", null);
+                check.setID(cursor.getInt(0));
+                check.setName(cursor.getString(1));
+                check.setFrequency(cursor.getString(2));
+                check.setDateAdded(cursor.getInt(3));
+                //Add the checklist to the list
+
+                check.setchecklistItems(selectCheckListItems(check.getID()));
+                checklist_array.add(check);
+
+
+
             }
             while(cursor.moveToNext());
 
@@ -88,7 +102,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
 
-        return checklist_id_array;
+        return checklist_array;
 
 
 
@@ -175,7 +189,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
 
-    public int addChecklistToDB(String name, int id, int date_added, int frequency){
+    public int addChecklistToDB(String name, int id, int date_added, String frequency){
 
 
         //Adds a checklist to the DB. 1 if successful, 0 if not
@@ -254,10 +268,10 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
 
             do {
-                Checklist check = new Checklist("", 0, 0, 0, null);
+                Checklist check = new Checklist("", 0, 0, "", null);
                 check.setID(cursor.getInt(0));
                 check.setName(cursor.getString(1));
-                check.setFrequency(cursor.getInt(2));
+                check.setFrequency(cursor.getString(2));
                 check.setDateAdded(cursor.getInt(3));
                 //Add the checklist to the list
 
@@ -308,7 +322,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
         String CREATE_CHECKLIST_TABLE = "CREATE TABLE " + TABLE_CHECKLISTS + "("
                 + CHECKLIST_ID + " INTEGER PRIMARY KEY," + CHECKLIST_NAME + " TEXT,"
-                + CHECKLIST_FREQUENCY + " INTEGER," + CHECKLIST_DATE_ADDED + " INTEGER" + ")";
+                + CHECKLIST_FREQUENCY + " TEXT," + CHECKLIST_DATE_ADDED + " INTEGER" + ")";
         sqLiteDatabase.execSQL(CREATE_CHECKLIST_TABLE);
 
         String CREATE_ITEM_TABLE = "CREATE TABLE " + TABLE_CHECKLISTITEMS + "("

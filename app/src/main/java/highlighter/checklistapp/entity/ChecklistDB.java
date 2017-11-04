@@ -22,11 +22,11 @@ public class ChecklistDB {
 
 
     ArrayList<Checklist> checklistDB;
-    int frequency;
+    String frequency;
 
     public ChecklistDB(){};
 
-    public ChecklistDB(ArrayList<Checklist> checklistDB, int frequency){
+    public ChecklistDB(ArrayList<Checklist> checklistDB, String frequency){
         this.checklistDB = checklistDB;
         this.frequency = frequency;
     }

@@ -308,6 +308,22 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         return 1;
     }
 
+
+    public void clearTables(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHECKLISTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHECKLISTITEMS);
+
+
+
+    }
+
+
+
+
     public ArrayList<ChecklistItem> selectCheckListItems(int checklist_id){
 
         //checklist_id is the id of the checklist

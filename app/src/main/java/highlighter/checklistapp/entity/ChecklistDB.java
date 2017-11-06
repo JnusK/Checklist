@@ -91,6 +91,32 @@ public class ChecklistDB extends SQLiteOpenHelper{
         }
     }
 
+
+    public int updateChecklist(int serviceability, int checklist_ID, int checklist_item_no){
+
+
+        String selectQuery = "UPDATE " + TABLE_CHECKLISTITEMS + " SET "
+                +ITEM_SERV +   "=" +  "'" + serviceability + "'" + " WHERE " + ITEM_CHECKLIST_ID + "=" + checklist_item_no;
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(selectQuery);
+
+
+        return 1;
+    }
+
+
+    public int deleteChecklist(int checklist_id){
+
+
+
+
+
+
+
+        return 1;
+    }
+
+
     public int addCheckListItemsToDB(int checklist_id, int id, String description, int serviceability){
         /**
          * Adds a checklistitem to the DB.
@@ -237,6 +263,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
         return checkList;
     }
+
 
 
 

@@ -101,8 +101,15 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
 
 
+        String selectQuery = "DELETE * FROM " + TABLE_CHECKLISTS + " WHERE "
+                +CHECKLIST_ID +   "=" +  "'" + checklist_id + "'";
 
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(selectQuery);
 
+        selectQuery =  "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
+                +ITEM_ID +   "=" +  "'" + checklist_id + "'";
+        db.execSQL(selectQuery);
 
 
         return 1;
@@ -136,6 +143,55 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 1;
 
     }
+
+
+    public static int[] InsertionSort(int[] slot,int n){
+        int temp;
+        for (int i = 1;i<n; i++){
+            for (int j = i;j>0;j--){
+
+                if (slot[j]<slot[j-1]){
+                    temp = slot[j];
+                    slot[j] = slot[j-1];
+                    slot[j-1] = temp;
+                }
+
+            }
+        }
+
+        return slot;
+    }
+
+    public int addChecklistToDB(String name, String frequency){
+
+        ArrayList<Checklist> checklistArraylist = getAllChecklist();
+
+        int[] array = new int[checklistArraylist.size()];
+
+        for(int i = 0; i < checklistArraylist.size(); i ++){
+
+            array[i] = checklistArraylist.get(i).getID();
+
+
+
+        }
+        array = InsertionSort(array,checklistArraylist.size());
+        addChecklistToDB(name,array[checklistArraylist.size()-1] + 1,0,"Daily");
+
+
+
+
+
+        return 1;
+    }
+
+
+
+
+
+
+
+
 
     public int addChecklistToDB(String name, int id, int date_added, String frequency){
 
@@ -310,16 +366,10 @@ public class ChecklistDB extends SQLiteOpenHelper{
    /* public ArrayList<Checklist> getCheckLists(){
         return checklistDB;
     }
-
     public void addChecklist(Checklist check){
-
-
         checklistDB.add(check);
-
     }
-
     public int update(int servicable, int checklist_id, int checklist_item_no){
-
         return 1;
     }*/
 

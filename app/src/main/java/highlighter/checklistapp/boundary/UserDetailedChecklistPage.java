@@ -9,17 +9,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.controller.AccessChecklistDB;
 import highlighter.checklistapp.customClass.CustomListAdapter2;
-import highlighter.checklistapp.entity.Checklist;
+import highlighter.checklistapp.entity.ChecklistDB;
+import highlighter.checklistapp.entity.ChecklistItem;
 
 public class UserDetailedChecklistPage extends UserHomepage{
 
-    TextView textViewChecklistName;
-    RadioButton rbServiceable, rbUnserviceable;
-    String ChecklistName;
+    TextView textViewChecklistName = null;
+    RadioButton rbServiceable = null, rbUnserviceable = null;
+    String ChecklistName = null;
+    int ChecklistID;
     ListView list;
-    ArrayList<Checklist> checklists = new ArrayList<Checklist>();
+    ArrayList<ChecklistItem> checklists = new ArrayList<ChecklistItem>();
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,45 +29,29 @@ public class UserDetailedChecklistPage extends UserHomepage{
 
         rbServiceable = (RadioButton)findViewById(R.id.rbServiceable);
         rbUnserviceable = (RadioButton)findViewById(R.id.rbUnserviceable);
-        textViewChecklistName = (TextView)findViewById(R.id.textViewChecklistName);
 
-        getChecklistName();
+        textViewChecklistName = (TextView)findViewById(R.id.textViewChecklistName);
+        getChecklistDetails();
+        textViewChecklistName.setText(ChecklistName);
 
         //fill list based on checklist name
-        populateList(ChecklistName);
-
-        /*
-        list.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // TODO Auto-generated method stub
-                //For testing purposes
-                Toast.makeText(getApplicationContext(), "End", Toast.LENGTH_SHORT).show();
-            }
-        });
-        */
-
+        populateList();
     }
 
-    private void getChecklistName(){
+    private void getChecklistDetails(){
         Intent intent = getIntent();
         ChecklistName = intent.getStringExtra("checklistName");
-        textViewChecklistName.setText(ChecklistName);
+        ChecklistID = intent.getIntExtra("checklistID", 0);
     }
 
-    public void populateList(String checklistName) {
+    public void populateList() {
         //Get DATA from DB pass to String[]
-        AccessChecklistDB DB = new AccessChecklistDB(this);
+        ChecklistDB DB = new ChecklistDB(this);
         //Pass data to ArrayAdapter
-        //checklists = DB.getAllChecklist(); //put in freq then search
-        //DB.addChecklistToDB("Test building",5,1,1);
-        //checklists = DB.findChecklist(chosenFreq);
-        //checklists = DB.findChecklist(checklistName);
+        checklists = DB.selectCheckListItems(ChecklistID);
         //In CustomListAdapter
         CustomListAdapter2 adapter = new CustomListAdapter2(this, checklists);
-        list = (ListView) findViewById(R.id.user_detailedchecklist_list);
+        list = (ListView)findViewById(R.id.user_detailedchecklist_list);
         list.setAdapter(adapter);
     }
 }

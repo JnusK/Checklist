@@ -4,28 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-    <LinearLayout android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:orientation="vertical"
-        >
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewChecklistName"
+            android:id="@+id/textViewChecklistItemDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:padding="2dp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:padding="2dp"
             android:textColor="#33CC33" />
 
-        <TextView
-            android:id="@+id/textViewChecklistDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
 

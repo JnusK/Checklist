@@ -29,18 +29,18 @@
     </LinearLayout>
 
 
-
-    <CheckBox
-        android:id="@+id/cbChecklistItem"
+    <RadioButton
+        android:id="@+id/rbServiceable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="CheckBox" />
+        android:text="Serviceable" />
 
     <RadioButton
+        android:id="@+id/rbUnserviceable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="RadioButton" />
+        android:text="Unserviceable" />
 
 </LinearLayout>

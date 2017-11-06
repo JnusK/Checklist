@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.customClass.CustomListAdapter;
 
 public class UserChecklistsPage extends UserHomepage{
 
@@ -21,10 +20,6 @@ public class UserChecklistsPage extends UserHomepage{
             "Control Building",
     };
 
-    Integer[] imgid={
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -34,9 +29,9 @@ public class UserChecklistsPage extends UserHomepage{
         frequencytextView = (TextView)findViewById(R.id.user_checklistspage_textview_frequency);
         getFrequencyText();
 
-        CustomListAdapter adapter = new CustomListAdapter(this, itemname, imgid);
-        list = (ListView)findViewById(R.id.list);
-        list.setAdapter(adapter);
+        //CustomListAdapter adapter = new CustomListAdapter(this, Checklist itemname);
+        //list = (ListView)findViewById(R.id.list);
+        //list.setAdapter(adapter);
 
         list.setOnItemClickListener(new OnItemClickListener() {
 

@@ -7,19 +7,22 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import highlighter.checklistapp.R;
+import java.util.ArrayList;
 
-public class CustomListAdapter2 extends ArrayAdapter<String> {
+import highlighter.checklistapp.R;
+import highlighter.checklistapp.entity.ChecklistItem;
+
+public class CustomListAdapter2 extends ArrayAdapter<ChecklistItem> {
 
     private final Activity context;
-    private final String[] itemname;
+    private ArrayList<ChecklistItem> checklists;
 
-    public CustomListAdapter2(Activity context, String[] itemname) {
-        super(context, R.layout.mylist2, itemname);
+    public CustomListAdapter2(Activity context, ArrayList<ChecklistItem> checklists) {
+        super(context, R.layout.mylist2, checklists);
         // TODO Auto-generated constructor stub
 
         this.context=context;
-        this.itemname=itemname;
+        this.checklists=checklists;
     }
 
     @Override
@@ -27,13 +30,9 @@ public class CustomListAdapter2 extends ArrayAdapter<String> {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.mylist2, null,true);
 
-        TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewChecklistName);
-        TextView extratxt = (TextView) rowView.findViewById(R.id.textViewChecklistDescription);
-
-        txtTitle.setText(itemname[position]);
-        extratxt.setText("Description "+itemname[position]);
+        TextView txtItemDesc = (TextView)rowView.findViewById(R.id.textViewChecklistItemDesc);
+        txtItemDesc.setText(checklists.get(position).getDescription());
 
         return rowView;
-
     };
 }

@@ -5,24 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import highlighter.checklistapp.R;
+import java.util.ArrayList;
 
-public class CustomListAdapter extends ArrayAdapter<String> {
+import highlighter.checklistapp.R;
+import highlighter.checklistapp.entity.Checklist;
+
+public class CustomListAdapter extends ArrayAdapter<Checklist> {
 
     private final Activity context;
-    private final String[] itemname;
-    private final Integer[] imgid;
+    private ArrayList<Checklist> itemname;
 
-    public CustomListAdapter(Activity context, String[] itemname, Integer[] imgid) {
+    public CustomListAdapter(Activity context, ArrayList<Checklist> itemname) {
         super(context, R.layout.mylist, itemname);
         // TODO Auto-generated constructor stub
 
         this.context=context;
         this.itemname=itemname;
-        this.imgid=imgid;
     }
 
     public View getView(int position,View view,ViewGroup parent) {
@@ -30,12 +30,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
         View rowView=inflater.inflate(R.layout.mylist, null,true);
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewChecklistName);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        TextView extratxt = (TextView) rowView.findViewById(R.id.textViewChecklistDescription);
-
-        txtTitle.setText(itemname[position]);
-        imageView.setImageResource(imgid[position]);
-        extratxt.setText("Description "+itemname[position]);
+        txtTitle.setText(itemname.get(position).getName());
         return rowView;
 
     };

@@ -4,43 +4,45 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-    <LinearLayout android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:orientation="vertical"
-        >
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewChecklistName"
+            android:id="@+id/textViewChecklistItemDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:padding="2dp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:padding="2dp"
             android:textColor="#33CC33" />
 
-        <TextView
-            android:id="@+id/textViewChecklistDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
-
-
-    <CheckBox
-        android:id="@+id/cbChecklistItem"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="CheckBox" />
+        android:orientation="horizontal"
+        android:layout_above="@+id/view_below" >
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="RadioButton" />
+        <RadioButton
+            android:id="@+id/rbServiceable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Serviceable" />
+
+        <RadioButton
+            android:id="@+id/rbUnserviceable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unserviceable" />
+
+    </RadioGroup>
 
 </LinearLayout>

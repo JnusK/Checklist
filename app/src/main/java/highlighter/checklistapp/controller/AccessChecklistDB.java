@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import highlighter.checklistapp.entity.Checklist;
 import highlighter.checklistapp.entity.ChecklistDB;
@@ -17,6 +16,10 @@ import highlighter.checklistapp.entity.ChecklistItem;
 /**
  * Created by Jnus on 23/10/2017.
  */
+
+
+//not to be used anymore
+
 
 public class AccessChecklistDB extends SQLiteOpenHelper {
 
@@ -48,7 +51,6 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
     ArrayList<ChecklistItem> checklistItemArrayList = new ArrayList<ChecklistItem>();
-    ChecklistDB checklistDB = new ChecklistDB(new ArrayList<Checklist>() , "");
 
 
     public void checkDB(){
@@ -129,25 +131,6 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
                 return checklist_array;
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public  ArrayList<Checklist> findChecklistByFrequency(String frequency_id){
         /**
@@ -256,21 +239,6 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         //TODO: Add created item to the corresponding checklist
 
 
-       if(checklistDB.getCheckLists()!= null) {
-            for (int i = 0; i < checklistDB.getCheckLists().size(); i++) {
-
-                if(checklistDB.getCheckLists().get(i) != null) {
-
-                    if (checklistDB.getCheckLists().get(i).getID() == checklist_id) {
-
-                        checklistDB.getCheckLists().get(i).addChecklistItem(cli);
-
-
-                    }
-                }
-
-            }
-        }
         //Checklist items are now added into the respective checklist in the checklistDB
 
 
@@ -300,8 +268,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
 
         //TODO: Add checklist to checklistDB
-        cl.setchecklistItems(new ArrayList<ChecklistItem>()); //setup the checklistitems in the checklist
-        checklistDB.addChecklist(cl);
+
         //Add checklist to checklistDB
 
 
@@ -358,11 +325,6 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<Checklist> getAllChecklistFromDB(){
-
-        return checklistDB.getCheckLists();
-
-    }
 
     public ArrayList<Checklist> getAllChecklist(){
 

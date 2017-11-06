@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.customClass.CustomListAdapter;
 import highlighter.checklistapp.entity.Checklist;
@@ -121,11 +122,13 @@ public class UserHomepage extends AppCompatActivity {
 
     public void populateList(String chosenFreq) {
         //Get DATA from DB pass to String[]
-        ChecklistDB DB = new ChecklistDB(this);
+        ChecklistDAO DB = new ChecklistDAO();
+        DB.DBHandler(this);
         //Pass data to ArrayAdapter
         //checklists = DB.getAllChecklist(); //put in freq then search
         //DB.addChecklistToDB("Test building",5,1,1);
-        checklists = DB.findChecklist(chosenFreq,ChecklistDB.SEARCH_FREQUENCY);
+        //DB.populateChecklist(this);
+        checklists = DB.accessChecklistDB.findChecklist(chosenFreq,ChecklistDB.SEARCH_FREQUENCY);
         //In CustomListAdapter
         CustomListAdapter adapter = new CustomListAdapter(this, checklists);
         list = (ListView)findViewById(R.id.user_homepage_list);

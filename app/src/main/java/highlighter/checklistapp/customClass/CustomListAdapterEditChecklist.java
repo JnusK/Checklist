@@ -26,10 +26,11 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<String> {
 
     private final Activity context;
     ArrayList<String> checklist_names;
-    TextView each_checklist_name;
+    TextView each_checklist_name_view, last_modified_view;
     View rowView;
     LayoutInflater inflater;
-    Button edit_button;
+    Button edit_button, delete_button;
+    int last_modified_id;
 
     public CustomListAdapterEditChecklist(Activity context, ArrayList<String> checklist_names) {
         super(context, R.layout.edit_checklist_item, checklist_names);
@@ -43,8 +44,10 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<String> {
     public View getView(final int position, View view, ViewGroup parent) {
         inflater = context.getLayoutInflater();
         rowView = inflater.inflate(R.layout.edit_checklist_item, null, true);
-        each_checklist_name = (TextView) rowView.findViewById(R.id.edit_checklist_item_name);
-        edit_button = (Button) rowView.findViewById(R.id.edit_checklist_item_button);
+        each_checklist_name_view =  rowView.findViewById(R.id.edit_checklist_item_name);
+        edit_button = rowView.findViewById(R.id.edit_checklist_item_button);
+        delete_button = rowView.findViewById(R.id.edit_checklist_delete_button);
+        last_modified_view = rowView.findViewById(R.id.edit_checklist_last_modified);
 
         edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +60,22 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<String> {
             }
         });
 
-        each_checklist_name.setText(checklist_names.get(position));
+        //edit this
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selected_checklist = checklist_names.get(position);
+
+                //delete checklist
+            }
+        });
+
+        each_checklist_name_view.setText(checklist_names.get(position));
+
+        //get last_modified_id
+        //set last_modified_id view
+        last_modified_view.setText("Last modified by: ");
+
         return rowView;
     };
 }

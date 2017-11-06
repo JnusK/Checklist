@@ -35,29 +35,29 @@ public class LoginActivity extends AppCompatActivity{
     private void populateChecklist(){
 
 
-       AccessChecklistDB db = new AccessChecklistDB(this);
-       db.addChecklistToDB("item1" , 1, 11417,"Daily"  );
-       db.addCheckListItemsToDB(11,1,"desc1" , 0);
+        AccessChecklistDB db = new AccessChecklistDB(this);
+        db.addChecklistToDB("item1" , 1, 11417,"Daily"  );
+        db.addCheckListItemsToDB(11,1,"desc1" , 0);
         db.addCheckListItemsToDB(12,1,"desc2" , 0);
 
         db.addChecklistToDB("item2" , 2, 11417,"Weekly"  );
-       db.addCheckListItemsToDB(22,2,"desc1" , 0);
+        db.addCheckListItemsToDB(22,2,"desc1" , 0);
         db.addCheckListItemsToDB(22,2,"desc2" , 0);
 
 
         db.addChecklistToDB("item3" , 3, 11417,"Biweekly"  );
-       db.addCheckListItemsToDB(33,3,"desc1" , 0);
+        db.addCheckListItemsToDB(33,3,"desc1" , 0);
         db.addCheckListItemsToDB(32,3,"desc2" , 0);
 
 
         db.addChecklistToDB("item4" , 4, 11417,"Monthly"  );
-       db.addCheckListItemsToDB(44,4,"desc1" , 0);
+        db.addCheckListItemsToDB(44,4,"desc1" , 0);
         db.addCheckListItemsToDB(43,4,"desc2" , 0);
 
 
 
         db.addChecklistToDB("item5" , 5, 11417,"Yearly"  );
-       db.addCheckListItemsToDB(55,5,"desc1" , 0);
+        db.addCheckListItemsToDB(55,5,"desc1" , 0);
         db.addCheckListItemsToDB(52,5,"desc2" , 0);
 
 

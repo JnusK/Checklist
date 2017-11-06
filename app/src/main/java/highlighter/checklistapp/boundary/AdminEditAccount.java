@@ -18,7 +18,7 @@ import highlighter.checklistapp.entity.User;
 public class AdminEditAccount extends AppCompatActivity {
 
     TextView name, password;
-    Button create_button;
+    Button create_button, delete_button;
     String user_password, new_user_password;
     int user_type, user_id, new_user_id, new_user_type;
     User user;
@@ -75,6 +75,10 @@ public class AdminEditAccount extends AppCompatActivity {
         return unixTime;
     }
 
+    private void deleteAccount(){
+        UserDAO.userDB.deleteUser(user_id);
+    }
+
     private void initialiseView(){
         name = findViewById(R.id.admin_edit_account_name);
         password = findViewById(R.id.admin_edit_account_password);
@@ -82,11 +86,20 @@ public class AdminEditAccount extends AppCompatActivity {
         radio_group_user_type = findViewById(R.id.admin_edit_account_radio_group);
         radio_admin = findViewById(R.id.admin_edit_account_radio_admin);
         radio_technician = findViewById(R.id.admin_edit_account_radio_technician);
+        delete_button = findViewById(R.id.admin_edit_account_delete_button);
 
         create_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i= new Intent(AdminEditAccount.this, AdminSearchAccount.class);
                 updateAccount();
+                startActivity(i);
+            }
+        });
+
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i= new Intent(AdminEditAccount.this, AdminSearchAccount.class);
+                deleteAccount();
                 startActivity(i);
             }
         });

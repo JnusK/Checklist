@@ -17,7 +17,7 @@ public class AdminEditChecklist extends AppCompatActivity {
 
     ArrayList<String> checklist_items = new ArrayList<>();
     ListView list;
-    Button add_button, create_button;
+    Button add_button, create_button, delete_button;
     String new_item_name, checklist_name;
     TextView item_name_input, checklist_name_input;
     CustomListAdapterNewChecklist adapter;
@@ -37,14 +37,20 @@ public class AdminEditChecklist extends AppCompatActivity {
         // checklistitems = checklist_items
     }
 
+    //edit this
+    private void deleteChecklist(){
+
+    }
+
     private void initialiseView(){
-        add_button = (Button) findViewById(R.id.admin_create_checklist_add_button);
-        item_name_input = (TextView) findViewById(R.id.admin_create_checklist_item_name);
-        checklist_name_input = (TextView) findViewById(R.id.admin_create_checklist_name);
-        create_button = (Button) findViewById(R.id.admin_create_checklist_create_button);
+        add_button = findViewById(R.id.admin_create_checklist_add_button);
+        item_name_input = findViewById(R.id.admin_create_checklist_item_name);
+        checklist_name_input = findViewById(R.id.admin_create_checklist_name);
+        create_button = findViewById(R.id.admin_create_checklist_create_button);
+        delete_button = findViewById(R.id.admin_create_checklist_delete_button);
 
         adapter = new CustomListAdapterNewChecklist(this, checklist_items);
-        list = (ListView) findViewById(R.id.admin_create_checklist_items_list);
+        list = findViewById(R.id.admin_create_checklist_items_list);
         list.setAdapter(adapter);
 
         add_button.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +68,14 @@ public class AdminEditChecklist extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i= new Intent(AdminEditChecklist.this, AdminSearchChecklist.class);
                 createNewChecklist();
+                startActivity(i);
+            }
+        });
+
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i= new Intent(AdminEditChecklist.this, AdminSearchAccount.class);
+                deleteChecklist();
                 startActivity(i);
             }
         });

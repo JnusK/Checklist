@@ -68,7 +68,7 @@ public class AdminSearchChecklist extends AppCompatActivity {
     private void populateList(){
         getFrequencyChecklists();
         CustomListAdapterEditChecklist adapter = new CustomListAdapterEditChecklist(this, checklist_names);
-        list = (ListView)findViewById(R.id.admin_search_checklist_listview);
+        list = findViewById(R.id.admin_search_checklist_listview);
         list.setAdapter(adapter);
     }
 

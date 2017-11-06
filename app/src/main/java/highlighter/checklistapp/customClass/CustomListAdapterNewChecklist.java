@@ -40,8 +40,8 @@ public class CustomListAdapterNewChecklist extends ArrayAdapter<String>{
     public View getView(final int position, View view, ViewGroup parent) {
         inflater = context.getLayoutInflater();
         rowView = inflater.inflate(R.layout.new_checklist_item, null, true);
-        checklist_item_name = (TextView) rowView.findViewById(R.id.new_checklist_item_name);
-        delete_button = (Button) rowView.findViewById(R.id.new_checklist_item_delete);
+        checklist_item_name = rowView.findViewById(R.id.new_checklist_item_name);
+        delete_button = rowView.findViewById(R.id.new_checklist_item_delete);
 
         checklist_item_name.setText(checklist_items.get(position));
 

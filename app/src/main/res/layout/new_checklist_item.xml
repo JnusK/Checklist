@@ -10,7 +10,7 @@
 
         <EditText
             android:id="@+id/new_checklist_item_name"
-            android:layout_width="280dp"
+            android:layout_width="480dp"
             android:layout_height="50dp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"

@@ -22,19 +22,27 @@
 
     </LinearLayout>
 
-
-    <RadioButton
-        android:id="@+id/rbServiceable"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Serviceable" />
+        android:orientation="horizontal"
+        android:layout_above="@+id/view_below" >
 
-    <RadioButton
-        android:id="@+id/rbUnserviceable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Unserviceable" />
+        <RadioButton
+            android:id="@+id/rbServiceable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Serviceable" />
+
+        <RadioButton
+            android:id="@+id/rbUnserviceable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unserviceable" />
+
+    </RadioGroup>
 
 </LinearLayout>

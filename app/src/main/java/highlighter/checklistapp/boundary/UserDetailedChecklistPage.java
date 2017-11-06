@@ -2,9 +2,12 @@ package highlighter.checklistapp.boundary;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,6 +23,7 @@ public class UserDetailedChecklistPage extends UserHomepage{
     String ChecklistName = null;
     int ChecklistID;
     ListView list;
+    Button btnSave;
     ArrayList<ChecklistItem> checklists = new ArrayList<ChecklistItem>();
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,17 @@ public class UserDetailedChecklistPage extends UserHomepage{
 
         //fill list based on checklist name
         populateList();
+
+        btnSave = (Button)findViewById(R.id.user_detailedchecklist_btnSave);
+        btnSave.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Toast.makeText(UserDetailedChecklistPage.this, "Test success", Toast.LENGTH_SHORT).show();
+                onBackPressed();
+            }
+        });
     }
 
     private void getChecklistDetails(){

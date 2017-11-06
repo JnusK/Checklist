@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import highlighter.checklistapp.entity.Checklist;
 import highlighter.checklistapp.entity.ChecklistDB;
@@ -129,25 +128,6 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
                 return checklist_array;
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public  ArrayList<Checklist> findChecklistByFrequency(String frequency_id){
         /**

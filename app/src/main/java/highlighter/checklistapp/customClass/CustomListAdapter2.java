@@ -7,14 +7,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import highlighter.checklistapp.R;
+import java.util.ArrayList;
 
-public class CustomListAdapter2 extends ArrayAdapter<String> {
+import highlighter.checklistapp.R;
+import highlighter.checklistapp.entity.Checklist;
+
+public class CustomListAdapter2 extends ArrayAdapter<Checklist> {
 
     private final Activity context;
-    private final String[] itemname;
+    private ArrayList<Checklist> itemname;
 
-    public CustomListAdapter2(Activity context, String[] itemname) {
+    public CustomListAdapter2(Activity context, ArrayList<Checklist> itemname) {
         super(context, R.layout.mylist2, itemname);
         // TODO Auto-generated constructor stub
 
@@ -30,8 +33,8 @@ public class CustomListAdapter2 extends ArrayAdapter<String> {
         TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewChecklistName);
         TextView extratxt = (TextView) rowView.findViewById(R.id.textViewChecklistDescription);
 
-        txtTitle.setText(itemname[position]);
-        extratxt.setText("Description "+itemname[position]);
+        txtTitle.setText(itemname.get(position).getName());
+        extratxt.setText("Description "+itemname.get(position).getchecklistItems());
 
         return rowView;
 

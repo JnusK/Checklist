@@ -18,6 +18,7 @@ import highlighter.checklistapp.R;
 import highlighter.checklistapp.controller.AccessChecklistDB;
 import highlighter.checklistapp.customClass.CustomListAdapter;
 import highlighter.checklistapp.entity.Checklist;
+import highlighter.checklistapp.entity.ChecklistDB;
 
 public class UserHomepage extends AppCompatActivity {
 
@@ -36,7 +37,6 @@ public class UserHomepage extends AppCompatActivity {
 
         frequency_spinner = (Spinner)findViewById(R.id.user_homepage_spinner);
 
-        populateChecklist();
         populateList("Daily");
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
@@ -74,7 +74,7 @@ public class UserHomepage extends AppCompatActivity {
     private void populateChecklist(){
 
 
-        AccessChecklistDB db = new AccessChecklistDB(this);
+        ChecklistDB db = new ChecklistDB(this);
         db.addChecklistToDB("item1" , 1, 11417,"Daily"  );
         db.addCheckListItemsToDB(11,1,"desc1" , 0);
         db.addCheckListItemsToDB(12,1,"desc2" , 0);
@@ -127,11 +127,11 @@ public class UserHomepage extends AppCompatActivity {
 
     public void populateList(String chosenFreq) {
         //Get DATA from DB pass to String[]
-        AccessChecklistDB DB = new AccessChecklistDB(this);
+        ChecklistDB DB = new ChecklistDB(this);
         //Pass data to ArrayAdapter
         //checklists = DB.getAllChecklist(); //put in freq then search
         //DB.addChecklistToDB("Test building",5,1,1);
-        checklists = DB.findChecklistByFrequency(chosenFreq);
+        checklists = DB.findChecklist(chosenFreq,ChecklistDB.SEARCH_FREQUENCY);
         //In CustomListAdapter
         CustomListAdapter adapter = new CustomListAdapter(this, checklists);
         list = (ListView) findViewById(R.id.user_homepage_list);

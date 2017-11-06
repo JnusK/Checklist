@@ -10,7 +10,7 @@
         >
 
         <TextView
-            android:id="@+id/textViewChecklistName"
+            android:id="@+id/textViewItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Medium Text"
@@ -21,7 +21,7 @@
             android:textColor="#33CC33" />
 
         <TextView
-            android:id="@+id/textViewChecklistDescription"
+            android:id="@+id/textViewItemDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"

@@ -10,7 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import highlighter.checklistapp.entity.Checklist;
-import highlighter.checklistapp.entity.ChecklistDB;
 import highlighter.checklistapp.entity.ChecklistItem;
 
 /**

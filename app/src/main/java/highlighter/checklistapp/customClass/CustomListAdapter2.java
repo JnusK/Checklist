@@ -10,19 +10,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.entity.Checklist;
+import highlighter.checklistapp.entity.ChecklistItem;
 
-public class CustomListAdapter2 extends ArrayAdapter<Checklist> {
+public class CustomListAdapter2 extends ArrayAdapter<ChecklistItem> {
 
     private final Activity context;
-    private ArrayList<Checklist> itemname;
+    private ArrayList<ChecklistItem> checklist;
 
-    public CustomListAdapter2(Activity context, ArrayList<Checklist> itemname) {
-        super(context, R.layout.mylist2, itemname);
+    public CustomListAdapter2(Activity context, ArrayList<ChecklistItem> checklist) {
+        super(context, R.layout.mylist2, checklist);
         // TODO Auto-generated constructor stub
 
         this.context=context;
-        this.itemname=itemname;
+        this.checklist=checklist;
     }
 
     @Override
@@ -30,11 +30,11 @@ public class CustomListAdapter2 extends ArrayAdapter<Checklist> {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.mylist2, null,true);
 
-        TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewChecklistName);
-        TextView extratxt = (TextView) rowView.findViewById(R.id.textViewChecklistDescription);
+        //TextView txtItemName = (TextView) rowView.findViewById(R.id.textViewItemName);
+        TextView txtItemDesc = (TextView) rowView.findViewById(R.id.textViewItemDesc);
 
-        txtTitle.setText(itemname.get(position).getName());
-        extratxt.setText("Description "+itemname.get(position).getchecklistItems());
+        //txtItemName.setText(checklist.get(position).get);
+        txtItemDesc.setText("Description "+ checklist.get(position).getDescription());
 
         return rowView;
 

@@ -9,17 +9,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.controller.AccessChecklistDB;
 import highlighter.checklistapp.customClass.CustomListAdapter2;
 import highlighter.checklistapp.entity.Checklist;
+import highlighter.checklistapp.entity.ChecklistDB;
+import highlighter.checklistapp.entity.ChecklistItem;
 
 public class UserDetailedChecklistPage extends UserHomepage{
 
-    TextView textViewChecklistName;
-    RadioButton rbServiceable, rbUnserviceable;
-    String ChecklistName;
-    ListView list;
+    TextView textViewChecklistName = null;
+    RadioButton rbServiceable = null, rbUnserviceable = null;
+    ListView list = null;
     ArrayList<Checklist> checklists = new ArrayList<Checklist>();
+    ArrayList<ChecklistItem> checklistsItem = new ArrayList<ChecklistItem>();
+    String ChecklistName = null;
+    int ChecklistID;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,12 +31,11 @@ public class UserDetailedChecklistPage extends UserHomepage{
 
         rbServiceable = (RadioButton)findViewById(R.id.rbServiceable);
         rbUnserviceable = (RadioButton)findViewById(R.id.rbUnserviceable);
+
         textViewChecklistName = (TextView)findViewById(R.id.textViewChecklistName);
-
-        getChecklistName();
-
+        getChecklistDetails();
         //fill list based on checklist name
-        populateList(ChecklistName);
+        populateList();
 
         /*
         list.setOnItemClickListener(new OnItemClickListener() {
@@ -50,22 +52,23 @@ public class UserDetailedChecklistPage extends UserHomepage{
 
     }
 
-    private void getChecklistName(){
+    private void getChecklistDetails(){
         Intent intent = getIntent();
         ChecklistName = intent.getStringExtra("checklistName");
+        ChecklistID = intent.getIntExtra("checklistID", 0);
         textViewChecklistName.setText(ChecklistName);
     }
 
-    public void populateList(String checklistName) {
+    public void populateList() {
         //Get DATA from DB pass to String[]
-        AccessChecklistDB DB = new AccessChecklistDB(this);
+        ChecklistDB DB = new ChecklistDB(this);
         //Pass data to ArrayAdapter
         //checklists = DB.getAllChecklist(); //put in freq then search
         //DB.addChecklistToDB("Test building",5,1,1);
         //checklists = DB.findChecklist(chosenFreq);
-        //checklists = DB.findChecklist(checklistName);
+        checklistsItem = DB.selectCheckListItems(ChecklistID);
         //In CustomListAdapter
-        CustomListAdapter2 adapter = new CustomListAdapter2(this, checklists);
+        CustomListAdapter2 adapter = new CustomListAdapter2(this, checklistsItem);
         list = (ListView) findViewById(R.id.user_detailedchecklist_list);
         list.setAdapter(adapter);
     }

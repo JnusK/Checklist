@@ -15,13 +15,17 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import highlighter.checklistapp.R;
+import highlighter.checklistapp.UserDAO;
+import highlighter.checklistapp.entity.User;
 
 public class AdminSearchAccount extends AppCompatActivity {
 
     ListView account_list;
     EditText search_filter;
     ArrayAdapter adapter;
-    ArrayList<String> account_names;
+    ArrayList<User> users_list;
+    ArrayList<Integer> account_names;
+    int each_name;
     Button add_account_button;
 
     @Override
@@ -47,7 +51,7 @@ public class AdminSearchAccount extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                String selected_item = account_names.get(+position);
+                int selected_item = account_names.get(+position);
 
                 Intent i = new Intent(AdminSearchAccount.this, AdminEditAccount.class);
                 i.putExtra("selected_item", selected_item);
@@ -65,15 +69,14 @@ public class AdminSearchAccount extends AppCompatActivity {
         activateSearch();
     }
 
-    //edit this
     private void getAccounts(){
+        users_list = new ArrayList<>();
         account_names = new ArrayList<>();
-
-        //fake data
-        account_names.add("A");
-        account_names.add("B");
-        account_names.add("C");
-        account_names.add("D");
+        users_list = UserDAO.userDB.getAllUsers();
+        for (int i = 0; i < users_list.size(); i += 1){
+            each_name = users_list.get(i).getID();
+            account_names.add(each_name);
+        }
 
     }
 

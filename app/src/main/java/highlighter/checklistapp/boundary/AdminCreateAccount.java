@@ -64,7 +64,7 @@ public class AdminCreateAccount extends AdminHomepage {
         username = Integer.parseInt(name.getText().toString());
         user_password = password.getText().toString();
         int currentTime = getCurrentTime();
-        UserDAO.accessUserDB.addUserToDB(username, user_password, user_type, currentTime);
+        UserDAO.userDB.addUserToDB(username, user_password, user_type, currentTime);
     }
 
     private int getCurrentTime(){

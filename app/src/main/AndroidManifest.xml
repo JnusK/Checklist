@@ -28,10 +28,14 @@
         <activity android:name=".boundary.UserChecklistsPage" />
         <activity android:name=".boundary.AdminCreateAccount" />
         <activity android:name=".boundary.UserDetailedChecklistPage" />
-        <activity android:name=".boundary.AdminSearchAccount" />
+        <activity android:name=".boundary.AdminSearchAccount">
+
+        </activity>
         <activity android:name=".boundary.AdminEditAccount" >
         </activity>
-        <activity android:name=".boundary.AdminSearchChecklist" />
+        <activity android:name=".boundary.AdminSearchChecklist">
+
+        </activity>
         <activity android:name=".boundary.AdminEditChecklist"></activity>
     </application>
 

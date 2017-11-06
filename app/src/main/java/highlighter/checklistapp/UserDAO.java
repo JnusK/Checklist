@@ -11,13 +11,14 @@ import highlighter.checklistapp.entity.UserDB;
  */
 
 public class UserDAO {
-    public static UserDB accessUserDB;
+    public static UserDB userDB;
 
     public static void DBHandler(Context context){
         Log.d("DBHandler", "user ");
 
-        accessUserDB = new UserDB(context); // This will be your DB Handler Class
-        accessUserDB.addUserToDB(12345, "admin", 1, 0);
-        accessUserDB.addUserToDB(234, "tech", 0, 0);
+        userDB = new UserDB(context); // This will be your DB Handler Class
+        userDB.addUserToDB(12345, "admin", 1, 0);
+        userDB.addUserToDB(234, "tech", 0, 0);
+        userDB.addUserToDB(12, "admin", 1, 0);
     }
 }

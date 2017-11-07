@@ -10,19 +10,23 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.customClass.CustomListAdapterEditChecklist;
+import highlighter.checklistapp.entity.Checklist;
 
 public class AdminSearchChecklist extends AppCompatActivity {
 
     public static final List<String> frequency_list = Arrays.asList("Daily", "Weekly", "Biweekly", "Monthly", "Yearly");
     Spinner frequency_spinner;
     ListView list;
-    ArrayList<String> checklist_names;
+    ArrayList<Integer> checklist_id;
+    ArrayList<Checklist> checklist_list;
     Button add_checklist;
     String chosen_frequency;
 
@@ -66,26 +70,30 @@ public class AdminSearchChecklist extends AppCompatActivity {
     }
 
     private void populateList(){
-        getFrequencyChecklists();
-        CustomListAdapterEditChecklist adapter = new CustomListAdapterEditChecklist(this, checklist_names);
+        ArrayList<Checklist> checklist_list = ChecklistDAO.accessChecklistDB.findChecklist(chosen_frequency, 3);
+        CustomListAdapterEditChecklist adapter = new CustomListAdapterEditChecklist(this, checklist_list);
         list = findViewById(R.id.admin_search_checklist_listview);
         list.setAdapter(adapter);
     }
 
     //edit this
-    private void getFrequencyChecklists(){
-        checklist_names = new ArrayList<>();
-        //checklist_names = getFrequency(chosen_frequency);
+//    private void getFrequencyChecklists(){
+//        checklist_id = new ArrayList<>();
+//        checklist_list = new ArrayList<>();
+//        checklist_list = ChecklistDAO.accessChecklistDB.findChecklist(chosen_frequency, 3);
+//
+//        for (int i = 0; i < checklist_list.size(); i += 1){
+//            checklist_id.add(checklist_list.get(i).getID());
+//        }
 
-        //fake data
-        if (chosen_frequency == "Weekly"){
-            checklist_names.add("Service Building");
-            checklist_names.add("Control Building");
-        }
-        else {
-            checklist_names.add("Listing Building");
-        }
-
-    }
+//        //fake data
+//        if (chosen_frequency == "Weekly"){
+//            checklist_id.add("Service Building");
+//            checklist_id.add("Control Building");
+//        }
+//        else {
+//            checklist_id.add("Listing Building");
+//        }
+//    }
 
 }

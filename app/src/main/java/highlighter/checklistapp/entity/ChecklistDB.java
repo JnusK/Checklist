@@ -9,6 +9,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import highlighter.checklistapp.customClass.Subscriber;
+
 /**
  * Created by Joseph on 10/24/2017.
  */
@@ -56,10 +58,28 @@ public class ChecklistDB extends SQLiteOpenHelper{
     ArrayList<Checklist> checklistDB;
     String frequency;
 
+
+
     /*public ChecklistDB(ArrayList<Checklist> checklistDB, String frequency){
         this.checklistDB = checklistDB;
         this.frequency = frequency;
     }*/
+
+    ArrayList<Subscriber> subscriber_list = new ArrayList<>();
+
+    public void addSubscriber(Subscriber subscriber){
+        subscriber_list.add(subscriber);
+    }
+
+    public void removeSubscriber(Subscriber subscriber){
+        subscriber_list.remove(subscriber);
+    }
+
+    public void notifySubscribers(){
+        for (int i = 0; i < subscriber_list.size(); i+=1){
+            subscriber_list.get(i).update();
+        }
+    }
 
     public ChecklistDB(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -339,7 +359,10 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
 
     public ArrayList<Checklist> findChecklist(String value, int choice){
-
+//        public static final int SEARCH_NAME  = 1;
+//        public static final int SEARCH_ID  = 2;
+//        public static final int SEARCH_FREQUENCY  = 3;
+//        public static final int SEARCH_DATE_ADDED  = 4;
 
         ArrayList<Checklist> checklist_array = new ArrayList<Checklist>();
         String selectQuery = "";

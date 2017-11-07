@@ -13,27 +13,39 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
+import highlighter.checklistapp.UserDAO;
 import highlighter.checklistapp.boundary.UserDetailedChecklistPage;
+import highlighter.checklistapp.entity.Checklist;
 
 /**
  * Created by Khorly on 24/10/17.
  */
 
-public class CustomListAdapterNewChecklist extends ArrayAdapter<String>{
+public class CustomListAdapterNewChecklist extends ArrayAdapter<Integer> implements Subscriber{
     private final Activity context;
-    ArrayList<String> checklist_items;
+    int checklist_id;
+    ArrayList<Integer> checklist_items;
     TextView checklist_item_name;
     View rowView;
     LayoutInflater inflater;
     Button delete_button;
 
-    public CustomListAdapterNewChecklist(Activity context, ArrayList<String> checklist_items) {
+    public CustomListAdapterNewChecklist(Activity context, ArrayList<Integer> checklist_items) {
         super(context, R.layout.new_checklist_item, checklist_items);
         // TODO Auto-generated constructor stub
 
         this.context=context;
         this.checklist_items=checklist_items;
+        this.checklist_id=ChecklistDAO.accessChecklistDB.getID();
+        ChecklistDAO.accessChecklistDB.addSubscriber(this);
+    }
+
+    @Override
+    public void update() {
+        checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
+        notifyDataSetChanged();
     }
 
     @Override

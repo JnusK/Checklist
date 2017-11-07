@@ -3,7 +3,6 @@ package highlighter.checklistapp.boundary;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.customClass.CustomListAdapterNewChecklist;
-import highlighter.checklistapp.entity.Checklist;
 import highlighter.checklistapp.entity.ChecklistItem;
 
 public class AdminEditChecklist extends AppCompatActivity {
@@ -98,7 +96,7 @@ public class AdminEditChecklist extends AppCompatActivity {
         checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
 
         for (int i = 0; i < checklist_items.size(); i+=0){
-            checklist_items_id.add(checklist_items.get(i).getId());
+            checklist_items_id.add(checklist_items.get(i).getChecklistID());
         }
     }
 }

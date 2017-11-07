@@ -38,13 +38,13 @@ public class CustomListAdapterNewChecklist extends ArrayAdapter<Integer> impleme
 
         this.context=context;
         this.checklist_items=checklist_items;
-        this.checklist_id=ChecklistDAO.accessChecklistDB.getID();
+        this.checklist_id=ChecklistDAO.accessChecklistDB.findCheckListID(checklist_items.get(0));
         ChecklistDAO.accessChecklistDB.addSubscriber(this);
     }
 
     @Override
     public void update() {
-        checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
+//        checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
         notifyDataSetChanged();
     }
 

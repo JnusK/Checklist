@@ -5,17 +5,17 @@ package highlighter.checklistapp.entity;
  */
 
 public class ChecklistItem {
+    private int checklist_item_id;
     private int checklist_id;
-    private int id;
     private String description;
     private int serviceability;
 
     public void setChecklistID(int checklist_id) {
-        this.checklist_id = checklist_id;
+        this.checklist_item_id = checklist_id;
     }
 
     public void setID(int id){
-        this.id = id;
+        this.checklist_id = id;
     }
 
     public void setDescription(String description){
@@ -26,12 +26,12 @@ public class ChecklistItem {
         this.serviceability = serviceability;
     }
 
-    public int getChecklistID() {
-        return checklist_id;
+    public int getChecklistItemID() {
+        return checklist_item_id;
     }
 
-    public int getId(){
-        return id;
+    public int getChecklistID(){
+        return checklist_id;
     }
 
     public String getDescription(){
@@ -42,9 +42,9 @@ public class ChecklistItem {
         return serviceability;
     }
 
-    public ChecklistItem(int checklist_id, int id, String description, int serviceability){
-        this.checklist_id = checklist_id;
-        this.id = id;
+    public ChecklistItem(int checklist_item_id, int id, String description, int serviceability){
+        this.checklist_item_id = checklist_item_id;
+        this.checklist_id = id;
         this.description = description;
         this.serviceability = serviceability;
     }

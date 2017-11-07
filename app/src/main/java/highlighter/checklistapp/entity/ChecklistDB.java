@@ -156,7 +156,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
             for (int i = 0; i < checklistArraylist.size(); i++) {
 
-                array[i] = checklistArraylist.get(i).getChecklistID();
+                array[i] = checklistArraylist.get(i).getChecklistItemID();
 
 
             }
@@ -186,7 +186,7 @@ return 0;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ITEM_CHECKLIST_ID , checklist_id);
-        values.put(ITEM_ID , cli.getId());
+        values.put(ITEM_ID , cli.getChecklistID());
         values.put(ITEM_DESC , cli.getDescription());
         values.put(ITEM_SERV , cli.getServiceability());
 
@@ -229,7 +229,7 @@ return 0;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ITEM_CHECKLIST_ID , checklist_id);
-        values.put(ITEM_ID , cli.getId());
+        values.put(ITEM_ID , cli.getChecklistID());
         values.put(ITEM_DESC , cli.getDescription());
         values.put(ITEM_SERV , cli.getServiceability());
 
@@ -685,7 +685,7 @@ return 0;
         }
     }
 
-    public int findCheckListItemID(int checklistitem_id){
+    public int findCheckListID(int checklistitem_id){
 
 
         {
@@ -714,7 +714,7 @@ return 0;
 
             }
 
-            int checklist_id = checkListItem.get(0).getId();
+            int checklist_id = checkListItem.get(0).getChecklistID();
             return checklist_id;
 
 

@@ -15,24 +15,13 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1116a-4718-4c72-a9be-244c53e250e4" name="Default" comment="some stuff">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/Subscriber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
+    <list default="true" id="8eb1116a-4718-4c72-a9be-244c53e250e4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminEditChecklist.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminEditChecklist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminSearchChecklist.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminSearchChecklist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterEditChecklist.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterEditChecklist.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/controller/AccessChecklistDB.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/controller/AccessChecklistDB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterNewChecklist.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterNewChecklist.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistDB.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_search_checklist.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_search_checklist.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/edit_checklist_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edit_checklist_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java" />
     </list>
     <ignored path="ChecklistApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,44 +55,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="750">
-      <file leaf-file-name="UserDB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/UserDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AdminEditChecklist.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminEditChecklist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="68" column="46" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="46" />
+            <state relative-caret-position="391">
+              <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="68" />
               <folding>
-                <element signature="e#2134#2591#0" expanded="true" />
-                <element signature="e#2590#2591#0" expanded="true" />
-                <element signature="e#2636#2893#0" expanded="true" />
-                <element signature="e#2892#2893#0" expanded="true" />
-                <element signature="e#2938#3192#0" expanded="true" />
-                <element signature="e#3191#3192#0" expanded="true" />
+                <element signature="e#2059#2516#0" expanded="true" />
+                <element signature="e#2515#2516#0" expanded="true" />
+                <element signature="e#2561#2818#0" expanded="true" />
+                <element signature="e#2817#2818#0" expanded="true" />
+                <element signature="e#2863#3117#0" expanded="true" />
+                <element signature="e#3116#3117#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomListAdapterNewChecklist.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CustomListAdapterNewChecklist.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterNewChecklist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="178">
+              <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminSearchChecklist.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminSearchChecklist.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminSearchChecklist.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
@@ -111,6 +90,16 @@
               <folding>
                 <element signature="e#1780#1788#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChecklistDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/ChecklistDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="51" column="84" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="84" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,9 +127,12 @@
       <file leaf-file-name="ChecklistItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="46" column="15" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="375">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,7 +140,7 @@
       <file leaf-file-name="Checklist.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/Checklist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="141">
               <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#1588#1589#0" expanded="true" />
@@ -161,19 +153,24 @@
       <file leaf-file-name="ChecklistDB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="231">
+              <caret line="690" column="9" lean-forward="true" selection-start-line="690" selection-start-column="9" selection-end-line="690" selection-end-column="9" />
               <folding>
-                <element signature="e#2132#2133#0" expanded="true" />
-                <element signature="e#2179#2180#0" expanded="true" />
-                <element signature="e#2237#2238#0" expanded="true" />
-                <element signature="e#2287#2288#0" expanded="true" />
-                <element signature="e#8712#8723#0" expanded="true" />
-                <element signature="e#10738#10749#0" expanded="true" />
-                <element signature="e#12493#12504#0" expanded="true" />
-                <element signature="e#13408#13419#0" expanded="true" />
-                <element signature="e#14495#14510#0" expanded="true" />
-                <element signature="e#15579#15594#0" expanded="true" />
+                <element signature="e#2513#2514#0" expanded="true" />
+                <element signature="e#2560#2561#0" expanded="true" />
+                <element signature="e#2618#2619#0" expanded="true" />
+                <element signature="e#2668#2669#0" expanded="true" />
+                <element signature="e#2868#2869#0" expanded="true" />
+                <element signature="e#2937#2938#0" expanded="true" />
+                <element signature="e#10371#10382#0" expanded="true" />
+                <element signature="e#12397#12408#0" expanded="true" />
+                <element signature="e#14816#14827#0" expanded="true" />
+                <element signature="e#15731#15742#0" expanded="true" />
+                <element signature="e#16818#16833#0" expanded="true" />
+                <element signature="e#17945#17960#0" expanded="true" />
+                <element signature="e#19117#19132#0" expanded="true" />
+                <element signature="e#20190#20205#0" expanded="true" />
+                <element signature="e#21430#21445#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -201,26 +198,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SQL</find>
-      <find>exist</find>
-      <find>userDB</find>
-      <find>String</find>
-      <find>createaccount</find>
-      <find>getallchecklist()</find>
-      <find>findchecklist</find>
-      <find>checklists</find>
-      <find>p</find>
-      <find>populae</find>
-      <find>popula</find>
-      <find>populat</find>
-      <find>findCh</find>
       <find>table</find>
       <find>find</find>
       <find>populate</find>
       <find>it</find>
       <find>item3</find>
       <find>item</find>
-      <find>item 1</find>
       <find>chosen_frequency</find>
       <find>oncreate</find>
       <find>checklist_names</find>
@@ -231,6 +214,20 @@
       <find>checklist_items_description</find>
       <find>addchecklistitem</find>
       <find>object_list</find>
+      <find>findch</find>
+      <find>findchecklistitemid</find>
+      <find>checklist_id</find>
+      <find>item 1</find>
+      <find>geti</find>
+      <find>getId</find>
+      <find>g</find>
+      <find>getC</find>
+      <find>getCheck</find>
+      <find>getCheckl</find>
+      <find>getChecklist</find>
+      <find>getChecklistI</find>
+      <find>getChecklistID</find>
+      <find>findCheck</find>
     </findStrings>
     <replaceStrings>
       <replace>edit_account</replace>
@@ -1998,7 +1995,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminHomepage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_search_account.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_homepage.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_edit_account.xml" />
@@ -2020,7 +2016,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/ChecklistDAO.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_search_checklist.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_checklist_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminSearchChecklist.java" />
@@ -2028,8 +2023,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminEditChecklist.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/UserDB.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/Subscriber.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterNewChecklist.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/ChecklistDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistDB.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterNewChecklist.java" />
       </list>
     </option>
   </component>
@@ -2762,7 +2759,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510045122908" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510046017022" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2809,7 +2806,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510045122908" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1510046017022" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3237,7 +3234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510028880730</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="connecting Checklist front end to DB">
+      <created>1510045148038</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1510045148039</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3268,7 +3272,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30775446" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14167528" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.067349926" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705882" sideWeight="0.48227713" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3368,7 +3372,8 @@
     <MESSAGE value="front end stuff" />
     <MESSAGE value="fixed ChecklistDAO stuff" />
     <MESSAGE value="some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="some stuff" />
+    <MESSAGE value="connecting Checklist front end to DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="connecting Checklist front end to DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3655,17 +3660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="44" column="19" lean-forward="false" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1510023356000" expanded="true" signature="5412:5682" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/ChecklistDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="36" column="47" lean-forward="false" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -3714,24 +3708,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminEditChecklist.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="68" column="46" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="46" />
+        <state relative-caret-position="300">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminSearchChecklist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="78" column="15" lean-forward="true" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
           <folding>
-            <element signature="e#2134#2591#0" expanded="true" />
-            <element signature="e#2590#2591#0" expanded="true" />
-            <element signature="e#2636#2893#0" expanded="true" />
-            <element signature="e#2892#2893#0" expanded="true" />
-            <element signature="e#2938#3192#0" expanded="true" />
-            <element signature="e#3191#3192#0" expanded="true" />
+            <element signature="e#1780#1788#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/Checklist.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
+        <state relative-caret-position="141">
           <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="e#1588#1589#0" expanded="true" />
@@ -3748,56 +3745,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="375">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="231">
+          <caret line="690" column="9" lean-forward="true" selection-start-line="690" selection-start-column="9" selection-end-line="690" selection-end-column="9" />
           <folding>
-            <element signature="e#2132#2133#0" expanded="true" />
-            <element signature="e#2179#2180#0" expanded="true" />
-            <element signature="e#2237#2238#0" expanded="true" />
-            <element signature="e#2287#2288#0" expanded="true" />
-            <element signature="e#8712#8723#0" expanded="true" />
-            <element signature="e#10738#10749#0" expanded="true" />
-            <element signature="e#12493#12504#0" expanded="true" />
-            <element signature="e#13408#13419#0" expanded="true" />
-            <element signature="e#14495#14510#0" expanded="true" />
-            <element signature="e#15579#15594#0" expanded="true" />
+            <element signature="e#2513#2514#0" expanded="true" />
+            <element signature="e#2560#2561#0" expanded="true" />
+            <element signature="e#2618#2619#0" expanded="true" />
+            <element signature="e#2668#2669#0" expanded="true" />
+            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="e#2937#2938#0" expanded="true" />
+            <element signature="e#10371#10382#0" expanded="true" />
+            <element signature="e#12397#12408#0" expanded="true" />
+            <element signature="e#14816#14827#0" expanded="true" />
+            <element signature="e#15731#15742#0" expanded="true" />
+            <element signature="e#16818#16833#0" expanded="true" />
+            <element signature="e#17945#17960#0" expanded="true" />
+            <element signature="e#19117#19132#0" expanded="true" />
+            <element signature="e#20190#20205#0" expanded="true" />
+            <element signature="e#21430#21445#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/entity/ChecklistItem.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/ChecklistDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="46" column="15" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="15" />
+        <state relative-caret-position="338">
+          <caret line="51" column="84" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="84" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminEditChecklist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="68" />
+          <folding>
+            <element signature="e#2059#2516#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2561#2818#0" expanded="true" />
+            <element signature="e#2817#2818#0" expanded="true" />
+            <element signature="e#2863#3117#0" expanded="true" />
+            <element signature="e#3116#3117#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/customClass/CustomListAdapterNewChecklist.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="178">
+          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/highlighter/checklistapp/boundary/AdminSearchChecklist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="78" column="15" lean-forward="true" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
-          <folding>
-            <element signature="e#1780#1788#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

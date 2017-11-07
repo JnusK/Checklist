@@ -10,7 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import highlighter.checklistapp.entity.Checklist;
-import highlighter.checklistapp.entity.ChecklistDB;
 import highlighter.checklistapp.entity.ChecklistItem;
 
 /**
@@ -229,7 +228,7 @@ public class AccessChecklistDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ITEM_CHECKLIST_ID , checklist_id);
-        values.put(ITEM_ID , cli.getId());
+        values.put(ITEM_ID , cli.getChecklistID());
         values.put(ITEM_DESC , cli.getDescription());
         values.put(ITEM_SERV , cli.getServiceability());
 

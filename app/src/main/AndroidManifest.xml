@@ -24,12 +24,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".boundary.AdminHomepage" />
-        <activity android:name=".boundary.LoginActivity"></activity>
+        <activity android:name=".boundary.LoginActivity">
+        </activity>
         <activity android:name=".boundary.AdminCreateAccount" />
         <activity android:name=".boundary.UserDetailedChecklistPage" />
         <activity android:name=".boundary.AdminSearchAccount"></activity>
         <activity android:name=".boundary.AdminEditAccount"></activity>
         <activity android:name=".boundary.AdminSearchChecklist">
+
         </activity>
         <activity android:name=".boundary.AdminEditChecklist" />
         <activity android:name=".boundary.AdminCreateChecklist"></activity>

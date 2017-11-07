@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,8 +31,17 @@ public class CustomListAdapter2 extends ArrayAdapter<ChecklistItem> {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.mylist2, null,true);
 
-        TextView txtItemDesc = (TextView)rowView.findViewById(R.id.textViewChecklistItemDesc);
+        TextView txtItemDesc = rowView.findViewById(R.id.textViewChecklistItemDesc);
+        RadioButton rbServiceable = rowView.findViewById(R.id.rbServiceable);
+        RadioButton rbUnserviceable = rowView.findViewById(R.id.rbUnserviceable);
+
         txtItemDesc.setText(checklists.get(position).getDescription());
+        if (checklists.get(position).getServiceability() == 0){
+            rbServiceable.setChecked(true);
+        }
+        else {
+            rbUnserviceable.setChecked(true);
+        }
 
         return rowView;
     };

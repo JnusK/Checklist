@@ -172,7 +172,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 0;
     }
 
-    //TODO Take a 2nd look
+    //
     public int addCheckListItemsToDB(int checklist_id, String description, int serviceability, int choice){
         /**
          * Add checklist items to items table
@@ -201,7 +201,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 0;
     }
 
-    //TODO WTF is going on
+    //
     public int addCheckListItemsToDB(int item_id, int checklist_id, String description, int serviceability, int choice){
         /**
          * Adds a checklistitem to the DB.
@@ -237,7 +237,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
     }
 
-    //TODO WTF IS GOING ON!!!!
+    //
     public int addCheckListItemsToDB(int item_id, int checklist_id, String description, int serviceability){
         /**
          * Adds a checklistitem to the DB.
@@ -321,7 +321,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 0;
     }
 
-//TODO ???
+    //
     public int addChecklistToDB(String name, int id, int date_added, String frequency, int choice){
         /**
          *
@@ -355,7 +355,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 1;
     }
 
-    //TODO ???!!!
+    //
     public int addChecklistToDB(String name, int id, int date_added, String frequency){
         /**
          *

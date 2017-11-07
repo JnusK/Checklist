@@ -81,8 +81,9 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<Checklist> {
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChecklistDAO.accessChecklistDB.deleteChecklist(checklist_list.get(position).getID());
-                notifyDataSetChanged();
+                //TODO settle the delete code
+//                ChecklistDAO.accessChecklistDB.deleteChecklist(checklist_list.get(position).getID());
+//                notifyDataSetChanged();
 
                 //delete checklist
             }

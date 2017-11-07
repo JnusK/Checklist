@@ -31,11 +31,10 @@ public class AdminEditChecklist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_edit_checklist);
-        Log.d ("EditChecklist", "abc: 1");
+
+        initialiseView();
         getChecklistDetails();
-        Log.d ("EditChecklist", "abc: 2");
-//        initialiseView();
-        Log.d ("EditChecklist", "abc: 3");
+        initialiseListView();
 
     }
 
@@ -56,10 +55,6 @@ public class AdminEditChecklist extends AppCompatActivity {
         checklist_name_input = findViewById(R.id.admin_create_checklist_name);
         create_button = findViewById(R.id.admin_create_checklist_create_button);
         delete_button = findViewById(R.id.admin_create_checklist_delete_button);
-
-        adapter = new CustomListAdapterNewChecklist(this, checklist_items_id);
-        list = findViewById(R.id.admin_create_checklist_items_list);
-        list.setAdapter(adapter);
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +82,12 @@ public class AdminEditChecklist extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void initialiseListView(){
+        adapter = new CustomListAdapterNewChecklist(this, checklist_items_id);
+        list = findViewById(R.id.admin_create_checklist_items_list);
+        list.setAdapter(adapter);
     }
 
     private void getChecklistDetails(){

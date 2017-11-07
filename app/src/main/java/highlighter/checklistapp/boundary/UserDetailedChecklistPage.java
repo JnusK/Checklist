@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.customClass.CustomListAdapter2;
 import highlighter.checklistapp.entity.ChecklistDB;
@@ -61,9 +62,8 @@ public class UserDetailedChecklistPage extends UserHomepage{
 
     public void populateList() {
         //Get DATA from DB pass to String[]
-        ChecklistDB DB = new ChecklistDB(this);
         //Pass data to ArrayAdapter
-        checklists = DB.selectCheckListItems(ChecklistID);
+        checklists = ChecklistDAO.accessChecklistDB.selectCheckListItems(ChecklistID);
         //In CustomListAdapter
         CustomListAdapter2 adapter = new CustomListAdapter2(this, checklists);
         list = (ListView)findViewById(R.id.user_detailedchecklist_list);

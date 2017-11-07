@@ -48,7 +48,7 @@ public class UserDetailedChecklistPage extends UserHomepage{
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(UserDetailedChecklistPage.this, "Test success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserDetailedChecklistPage.this, "Update success", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
         });

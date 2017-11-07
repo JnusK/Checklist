@@ -256,8 +256,8 @@ return 0;
         //TODO: Add created item to the corresponding checklist
 
 
-
-
+        Log.e("EditChecklist", "Subscribers: " + subscriber_list);
+        notifySubscribers();
 
 
         return 1;
@@ -286,7 +286,7 @@ return 0;
         Log.i("accessDB","addChecklist items to db");
         //TODO: Add created item to the corresponding checklist
 
-
+        notifySubscribers();
 
 
 

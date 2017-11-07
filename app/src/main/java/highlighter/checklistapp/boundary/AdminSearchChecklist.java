@@ -48,7 +48,7 @@ public class AdminSearchChecklist extends AppCompatActivity {
         add_checklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(AdminSearchChecklist.this, AdminEditChecklist.class);
+                Intent i= new Intent(AdminSearchChecklist.this, AdminCreateChecklist.class);
                 startActivity(i);
             }
         });
@@ -75,6 +75,7 @@ public class AdminSearchChecklist extends AppCompatActivity {
         ArrayList<Checklist> checklist_list = ChecklistDAO.accessChecklistDB.findChecklist(chosen_frequency, 3);
         CustomListAdapterEditChecklist adapter = new CustomListAdapterEditChecklist(this, checklist_list);
         list = findViewById(R.id.admin_search_checklist_listview);
+        list.getCount();
         list.setAdapter(adapter);
     }
 

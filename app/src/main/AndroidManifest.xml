@@ -16,27 +16,22 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".boundary.UserHomepage"
-            android:label="@string/app_name">
+            android:label="@string/app_name"></activity>
+        <activity android:name=".boundary.AdminHomepage" />
+        <activity android:name=".boundary.LoginActivity"></activity>
+        <activity android:name=".boundary.AdminCreateAccount" />
+        <activity android:name=".boundary.UserDetailedChecklistPage" />
+        <activity android:name=".boundary.AdminSearchAccount"></activity>
+        <activity android:name=".boundary.AdminEditAccount"></activity>
+        <activity android:name=".boundary.AdminSearchChecklist">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".boundary.AdminHomepage"/>
-        <activity android:name=".boundary.LoginActivity">
-        </activity>
-        <activity android:name=".boundary.AdminCreateAccount" />
-        <activity android:name=".boundary.UserDetailedChecklistPage" />
-        <activity android:name=".boundary.AdminSearchAccount">
-
-        </activity>
-        <activity android:name=".boundary.AdminEditAccount" >
-        </activity>
-        <activity android:name=".boundary.AdminSearchChecklist">
-
-        </activity>
-        <activity android:name=".boundary.AdminEditChecklist"></activity>
+        <activity android:name=".boundary.AdminEditChecklist" />
+        <activity android:name=".boundary.AdminCreateChecklist"></activity>
     </application>
 
 </manifest>

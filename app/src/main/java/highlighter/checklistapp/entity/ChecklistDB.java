@@ -114,13 +114,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 1;
     }
 
-    public void updateChecklistName(int checklist_id, String new_name){
-        String selectQuery = "UPDATE " + TABLE_CHECKLISTS + " SET "
-                +CHECKLIST_NAME +   "=" +  "'" + new_name + "'" + " WHERE " + CHECKLIST_ID + "=" + checklist_id;
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL(selectQuery);
-    }
-
     //DONE
     public int deleteChecklistItem(int checklist_item_id,int choice) {
         /**
@@ -131,18 +124,15 @@ public class ChecklistDB extends SQLiteOpenHelper{
         String selectQuery;
 
         if(choice == ChecklistDB.ARCHIVE) {
-            selectQuery = "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
-                    + ITEM_ITEM_ID + "= " + checklist_item_id;
-//                    + ITEM_ITEM_ID + "=" + "'" + checklist_item_id + "'";
+            selectQuery = "DELETE FROM " + TABLE_CHECKLISTITEMS + " WHERE "
+                    + ITEM_ITEM_ID + "=" + "'" + checklist_item_id + "'";
             db.execSQL(selectQuery);
-            notifySubscribers();
             return 1;
         }
         else if (choice == ChecklistDB.TEMPLATE){
-            selectQuery = "DELETE * FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
+            selectQuery = "DELETE FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_ITEM_ID + "=" + "'" + checklist_item_id + "'";
             db.execSQL(selectQuery);
-            notifySubscribers();
             return 1;
         }
         return 0;
@@ -159,21 +149,21 @@ public class ChecklistDB extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         if(choice == ChecklistDB.ARCHIVE) {
-            selectQuery = "DELETE * FROM " + TABLE_CHECKLISTS + " WHERE "
+            selectQuery = "DELETE FROM " + TABLE_CHECKLISTS + " WHERE "
                     + CHECKLIST_ID + "=" + "'" + checklist_id + "'";
             db.execSQL(selectQuery);
 
-            selectQuery = "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
+            selectQuery = "DELETE FROM " + TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_CHECKLIST_ID + "=" + "'" + checklist_id + "'";
             db.execSQL(selectQuery);
             return 1;
         }
         else if(choice == ChecklistDB.TEMPLATE){
-            selectQuery = "DELETE * FROM " + TEMPLATE_TABLE_CHECKLISTS + " WHERE "
+            selectQuery = "DELETE FROM " + TEMPLATE_TABLE_CHECKLISTS + " WHERE "
                     + CHECKLIST_ID + "=" + "'" + checklist_id + "'";
             db.execSQL(selectQuery);
 
-            selectQuery = "DELETE * FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
+            selectQuery = "DELETE FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_CHECKLIST_ID + "=" + "'" + checklist_id + "'";
             db.execSQL(selectQuery);
             return 1;
@@ -206,7 +196,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
             array = InsertionSort(array, checklistArraylist.size());
             addCheckListItemsToDB(array[checklistArraylist.size() - 1] + 1, checklist_id, description, serviceability, choice);
-            notifySubscribers();
             return 1;
         }
         return 0;

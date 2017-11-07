@@ -15,6 +15,8 @@ public class Checklist {
     private ArrayList<ChecklistItem> checklistItems;
     private int last_edit_date;
     private int last_edit_user_id;
+    private boolean is_archive = true;
+
 
     public void setLast_edit_date(int last_edit_date) {
         this.last_edit_date = last_edit_date;
@@ -23,6 +25,12 @@ public class Checklist {
     public void setLast_edit_user_id(int last_edit_user_id) {
         this.last_edit_user_id = last_edit_user_id;
     }
+
+    public void setIs_archive(boolean is_archive) {
+        this.is_archive = is_archive;
+    }
+
+
 
     public void setName(String name) {
         this.name = name;
@@ -48,6 +56,7 @@ public class Checklist {
         return name;
     }
 
+    public boolean getIs_archive(){ return this.is_archive; }
 
     public int getLast_edit_date() {
         return last_edit_date;

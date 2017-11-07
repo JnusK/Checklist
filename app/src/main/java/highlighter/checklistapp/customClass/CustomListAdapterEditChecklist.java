@@ -26,7 +26,7 @@ import highlighter.checklistapp.entity.Checklist;
  * Created by Khorly on 24/10/17.
  */
 
-public class CustomListAdapterEditChecklist extends ArrayAdapter<Checklist> {
+public class CustomListAdapterEditChecklist extends ArrayAdapter<Checklist> implements Subscriber{
 
     private final Activity context;
     ArrayList<Checklist> checklist_list;
@@ -36,6 +36,7 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<Checklist> {
     LayoutInflater inflater;
     Button edit_button, delete_button;
     int last_modified_id;
+    String frequency;
 
     public CustomListAdapterEditChecklist(Activity context, ArrayList<Checklist> checklist_list) {
         super(context, R.layout.edit_checklist_item, checklist_list);
@@ -43,7 +44,15 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<Checklist> {
 
         this.context=context;
         this.checklist_list=checklist_list;
+//        this.frequency = checklist_list.get(0).getFrequency();
         getChecklistNames();
+        ChecklistDAO.accessChecklistDB.addSubscriber(this);
+    }
+
+    @Override
+    public void update(){
+//        checklist_list = ChecklistDAO.accessChecklistDB.findChecklist(frequency, 3);
+//        notifyDataSetChanged();
     }
 
     public void getChecklistNames() {
@@ -81,11 +90,9 @@ public class CustomListAdapterEditChecklist extends ArrayAdapter<Checklist> {
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO settle the delete code
-//                ChecklistDAO.accessChecklistDB.deleteChecklist(checklist_list.get(position).getID());
-//                notifyDataSetChanged();
+//                 ChecklistDAO.accessChecklistDB.deleteChecklist(checklist_list.get(position).getID(), 1);
 
-                //delete checklist
+            //delete checklist
             }
         });
 

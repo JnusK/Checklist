@@ -22,7 +22,7 @@
     <ListView
         android:id="@+id/admin_search_checklist_listview"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="550dp"
         android:layout_marginTop="41dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -37,6 +37,17 @@
         android:layout_alignEnd="@+id/admin_search_checklist_spinner"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_above="@+id/admin_search_checklist_home_button"/>
+
+    <Button
+        android:id="@+id/admin_search_checklist_home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/admin_homepage_manage_checklist_button"
+        android:layout_marginBottom="21dp"
+        android:text="Homepage" />
 
 </RelativeLayout>

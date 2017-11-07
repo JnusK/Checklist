@@ -26,7 +26,7 @@ public class AdminSearchAccount extends AppCompatActivity {
     ArrayList<User> users_list;
     ArrayList<Integer> account_names;
     int each_name;
-    Button add_account_button;
+    Button add_account_button, homepage_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,15 @@ public class AdminSearchAccount extends AppCompatActivity {
         account_list = findViewById(R.id.admin_search_account_search_accounts_list);
         search_filter = findViewById(R.id.admin_search_account_search_filter);
         add_account_button = findViewById(R.id.admin_search_account_search_add_button);
+        homepage_button = findViewById(R.id.admin_search_account_search_homepage_button);
+
+        homepage_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i= new Intent(AdminSearchAccount.this, AdminHomepage.class);
+                startActivity(i);
+            }
+        });
+
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, account_names);
         account_list.setAdapter(adapter);

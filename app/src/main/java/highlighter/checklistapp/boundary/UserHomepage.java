@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -26,6 +27,7 @@ public class UserHomepage extends AppCompatActivity {
     Spinner frequency_spinner = null;
     ListView list = null;
     String selectedFrequency = null;
+    Button logout_button;
 
     ArrayList<Checklist> checklists = new ArrayList<Checklist>();
 
@@ -38,6 +40,14 @@ public class UserHomepage extends AppCompatActivity {
         setContentView(R.layout.activity_user_homepage);
 
         frequency_spinner = (Spinner)findViewById(R.id.user_homepage_spinner);
+        logout_button = findViewById(R.id.user_homepage_logout_button);
+
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i= new Intent(UserHomepage.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         populateList("Daily");
 
@@ -75,13 +85,13 @@ public class UserHomepage extends AppCompatActivity {
 
     public void populateList(String chosenFreq) {
         //Get DATA from DB pass to String[]
-        ChecklistDAO DB = new ChecklistDAO();
-        DB.DBHandler(this);
+//        ChecklistDAO DB = new ChecklistDAO();
+//        DB.DBHandler(this);
         //Pass data to ArrayAdapter
         //checklists = DB.getAllChecklist(); //put in freq then search
         //DB.addChecklistToDB("Test building",5,1,1);
         //DB.populateChecklist(this);
-        checklists = DB.accessChecklistDB.findChecklist(chosenFreq,ChecklistDB.SEARCH_FREQUENCY);
+        checklists = ChecklistDAO.accessChecklistDB.findChecklist(chosenFreq,ChecklistDB.SEARCH_FREQUENCY);
         //In CustomListAdapter
         CustomListAdapter adapter = new CustomListAdapter(this, checklists);
         list = (ListView)findViewById(R.id.user_homepage_list);

@@ -21,9 +21,18 @@
         android:id="@+id/user_homepage_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/user_homepage_spinner"
-        android:layout_marginTop="53dp"></ListView>
+        android:layout_above="@+id/user_homepage_logout_button"></ListView>
+
+    <Button
+        android:id="@+id/user_homepage_logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/admin_homepage_manage_checklist_button"
+        android:layout_marginBottom="21dp"
+        android:text="Logout" />
 
 
 </RelativeLayout>

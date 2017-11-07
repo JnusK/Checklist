@@ -25,7 +25,7 @@ import highlighter.checklistapp.entity.ChecklistItem;
  * Created by Khorly on 24/10/17.
  */
 
-public class CustomListAdapterExistingChecklist extends ArrayAdapter<ChecklistItem> implements Subscriber{
+public class CustomListAdapterExistingChecklist extends ArrayAdapter<ChecklistItem>{
     private final Activity context;
     int checklist_id;
     ArrayList<Integer> checklist_items_id;
@@ -46,11 +46,11 @@ public class CustomListAdapterExistingChecklist extends ArrayAdapter<ChecklistIt
 
     }
 
-    @Override
-    public void update() {
-        checklist_items_list = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
-        notifyDataSetChanged();
-    }
+//    @Override
+//    public void update() {
+//        checklist_items_list = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
+//        notifyDataSetChanged();
+//    }
 
     @Override
     public View getView(final int position, View view, ViewGroup parent) {

@@ -1,8 +1,8 @@
 package highlighter.checklistapp.boundary;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.customClass.CustomListAdapterExistingChecklist;
-import highlighter.checklistapp.entity.ChecklistDB;
+import highlighter.checklistapp.customClass.Subscriber;
 import highlighter.checklistapp.entity.ChecklistItem;
 
-public class AdminEditChecklist extends AppCompatActivity {
+public class AdminEditChecklist extends AppCompatActivity implements Subscriber{
 
     ArrayList<ChecklistItem> checklist_items = new ArrayList<>();
 //    ArrayList<Integer> checklist_items_id = new ArrayList<>();
@@ -36,12 +36,19 @@ public class AdminEditChecklist extends AppCompatActivity {
         initialiseView();
         getChecklistDetails();
         initialiseListView();
+        ChecklistDAO.accessChecklistDB.addSubscriber(this);
+    }
 
+    @Override
+    public void update() {
+        checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
+        adapter.clear();
+        adapter.addAll(checklist_items);
     }
 
     private void createNewChecklist(){
         checklist_name = checklist_name_input.getText().toString();
-        ChecklistDAO.accessChecklistDB.updateChecklistName(checklist_id,checklist_name);
+        ChecklistDAO.accessChecklistDB.updateChecklistName(checklist_name, checklist_id);
     }
 
     //edit this
@@ -60,6 +67,7 @@ public class AdminEditChecklist extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("TEST 1", "SIZE "+checklist_items.size());
                 new_item_description = item_name_input.getText().toString();
                 ChecklistDAO.accessChecklistDB.addCheckListItemsToDB(checklist_id, new_item_description, 0, 1);
                 item_name_input.setText("");
@@ -87,7 +95,6 @@ public class AdminEditChecklist extends AppCompatActivity {
         adapter = new CustomListAdapterExistingChecklist(this, checklist_items);
         list = findViewById(R.id.admin_edit_checklist_items_list);
         list.setAdapter(adapter);
-        ChecklistDAO.accessChecklistDB.addSubscriber(adapter);
     }
 
     private void getChecklistDetails(){

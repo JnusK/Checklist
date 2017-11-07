@@ -50,4 +50,13 @@
         android:text="Manage Checklists"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/admin_homepage_logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/admin_homepage_manage_checklist_button"
+        android:layout_marginBottom="21dp"
+        android:text="Logout" />
+
 </RelativeLayout>

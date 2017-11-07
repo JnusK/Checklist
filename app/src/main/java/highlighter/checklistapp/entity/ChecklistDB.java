@@ -114,6 +114,17 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 1;
     }
 
+    public int updateChecklistName(String new_name, int checklist_id){
+        /**
+         * Sets the checklist item serviceability
+         */
+        String selectQuery = "UPDATE " + TABLE_CHECKLISTS + " SET "
+                +CHECKLIST_NAME +   "=" +  "'" + new_name + "'" + " WHERE " + CHECKLIST_ID + "=" + checklist_id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(selectQuery);
+        return 1;
+    }
+
     //DONE
     public int deleteChecklistItem(int checklist_item_id,int choice) {
         /**
@@ -127,12 +138,14 @@ public class ChecklistDB extends SQLiteOpenHelper{
             selectQuery = "DELETE FROM " + TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_ITEM_ID + "=" + "'" + checklist_item_id + "'";
             db.execSQL(selectQuery);
+            notifySubscribers();
             return 1;
         }
         else if (choice == ChecklistDB.TEMPLATE){
             selectQuery = "DELETE FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_ITEM_ID + "=" + "'" + checklist_item_id + "'";
             db.execSQL(selectQuery);
+            notifySubscribers();
             return 1;
         }
         return 0;
@@ -156,6 +169,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
             selectQuery = "DELETE FROM " + TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_CHECKLIST_ID + "=" + "'" + checklist_id + "'";
             db.execSQL(selectQuery);
+            notifySubscribers();
             return 1;
         }
         else if(choice == ChecklistDB.TEMPLATE){
@@ -166,6 +180,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
             selectQuery = "DELETE FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
                     + ITEM_CHECKLIST_ID + "=" + "'" + checklist_id + "'";
             db.execSQL(selectQuery);
+            notifySubscribers();
             return 1;
         }
 
@@ -196,6 +211,7 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
             array = InsertionSort(array, checklistArraylist.size());
             addCheckListItemsToDB(array[checklistArraylist.size() - 1] + 1, checklist_id, description, serviceability, choice);
+            notifySubscribers();
             return 1;
         }
         return 0;

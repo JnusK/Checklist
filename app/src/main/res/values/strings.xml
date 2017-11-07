@@ -2,5 +2,4 @@
     <string name="app_name">ChecklistApp</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_password">Password (optional)</string>
 </resources>

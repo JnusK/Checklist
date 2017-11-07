@@ -28,7 +28,7 @@ public class AdminSearchChecklist extends AppCompatActivity {
     ListView list;
     ArrayList<Integer> checklist_id;
     ArrayList<Checklist> checklist_list;
-    Button add_checklist;
+    Button add_checklist, homepage_button;
     String chosen_frequency;
 
     @Override
@@ -44,6 +44,14 @@ public class AdminSearchChecklist extends AppCompatActivity {
     private void initialiseView(){
         add_checklist = findViewById(R.id.admin_search_checklist_add_button);
         frequency_spinner = findViewById(R.id.admin_search_checklist_spinner);
+        homepage_button = findViewById(R.id.admin_search_checklist_home_button);
+
+        homepage_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i= new Intent(AdminSearchChecklist.this, AdminHomepage.class);
+                startActivity(i);
+            }
+        });
 
         add_checklist.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,11 +11,11 @@ import highlighter.checklistapp.entity.ChecklistDB;
  */
 
 public class ChecklistDAO {
-    public static ChecklistDB accessChecklistDB;
+    public static ChecklistDB checklistDB;
 
     public static void DBHandler(Context context){
         Log.d("DBHandler", "user ");
 
-        accessChecklistDB = new ChecklistDB(context);
+        checklistDB = new ChecklistDB(context);
     }
 }

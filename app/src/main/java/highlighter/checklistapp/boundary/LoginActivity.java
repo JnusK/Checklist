@@ -41,10 +41,10 @@ public class LoginActivity extends AppCompatActivity{
                 user_password = password.getText().toString();
                 admin_i= new Intent(LoginActivity.this, AdminHomepage.class);
                 user_i = new Intent(LoginActivity.this, UserHomepage.class);
-                authenticate = UserDAO.accessUserDB.authenticateUser(username, user_password);
+                authenticate = UserDAO.userDB.authenticateUser(username, user_password);
                 if (authenticate == 1) {
                     //user and password correct
-                    int user_type = UserDAO.accessUserDB.checkUserType(username);
+                    int user_type = UserDAO.userDB.checkUserType(username);
                     if (user_type == 1) {
                         //admin
                         startActivity(admin_i);

@@ -120,18 +120,69 @@ public class ChecklistDB extends SQLiteOpenHelper{
     }
 
 
-    public int deleteChecklist(int checklist_id){
-        String selectQuery = "DELETE * FROM " + TABLE_CHECKLISTS + " WHERE "
-                +CHECKLIST_ID +   "=" +  "'" + checklist_id + "'";
+
+    public int deleteChecklistItem(int checklist_item_id,int choice)
+        {
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            String selectQuery;
+
+            if(choice == ChecklistDB.ARCHIVE) {
+                selectQuery = "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
+                        + ITEM_CHECKLIST_ID + "=" + "'" + checklist_item_id + "'";
+                db.execSQL(selectQuery);
+                return 1;
+
+            }
+            else if (choice == ChecklistDB.TEMPLATE){
+
+                selectQuery = "DELETE * FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
+                        + ITEM_CHECKLIST_ID + "=" + "'" + checklist_item_id + "'";
+                db.execSQL(selectQuery);
+                return 1;
+
+
+            }
+
+            return 0;
+        }
+
+
+
+    public int deleteChecklist(int checklist_id , int choice){
+
+        String selectQuery;
+
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL(selectQuery);
 
-        selectQuery =  "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
-                +ITEM_ID +   "=" +  "'" + checklist_id + "'";
-        db.execSQL(selectQuery);
+        if(choice == ChecklistDB.ARCHIVE) {
+            selectQuery = "DELETE * FROM " + TABLE_CHECKLISTS + " WHERE "
+                    + CHECKLIST_ID + "=" + "'" + checklist_id + "'";
 
-        return 1;
+            db.execSQL(selectQuery);
+
+            selectQuery = "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
+                    + ITEM_ID + "=" + "'" + checklist_id + "'";
+            db.execSQL(selectQuery);
+            return 1;
+        }
+        else if(choice == ChecklistDB.TEMPLATE){
+            selectQuery = "DELETE * FROM " + TEMPLATE_TABLE_CHECKLISTS + " WHERE "
+                    + CHECKLIST_ID + "=" + "'" + checklist_id + "'";
+
+            db.execSQL(selectQuery);
+
+            selectQuery = "DELETE * FROM " + TEMPLATE_TABLE_CHECKLISTITEMS + " WHERE "
+                    + ITEM_ID + "=" + "'" + checklist_id + "'";
+            db.execSQL(selectQuery);
+            return 1;
+
+
+
+        }
+
+        return 0;
     }
 
 

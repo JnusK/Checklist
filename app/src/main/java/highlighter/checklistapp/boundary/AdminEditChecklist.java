@@ -40,14 +40,14 @@ public class AdminEditChecklist extends AppCompatActivity {
     }
 
     private void createNewChecklist(){
-        //Create new checklist
-        // checklistname = checklist_name
-        // checklistitems = checklist_items
+        checklist_name = checklist_name_input.getText().toString();
+        ChecklistDAO.accessChecklistDB.updateChecklistName(checklist_id,checklist_name);
     }
 
     //edit this
     private void deleteChecklist(){
-
+        //TODO
+        ChecklistDAO.accessChecklistDB.deleteChecklist(checklist_id, 1);
     }
 
     private void initialiseView(){
@@ -61,15 +61,8 @@ public class AdminEditChecklist extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new_item_description = item_name_input.getText().toString();
-
-                //TODO checklist_item_id need to change
                 ChecklistDAO.accessChecklistDB.addCheckListItemsToDB(checklist_id, new_item_description, 0, 1);
-//                ArrayList<ChecklistItem> abc = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
-//                Log.e("EditChecklist", "Checklist items: " + abc);
-
-//                checklist_items_id.add(new_item_name);
                 item_name_input.setText("");
-//                adapter.notifyDataSetChanged();
             }
         });
 
@@ -94,6 +87,7 @@ public class AdminEditChecklist extends AppCompatActivity {
         adapter = new CustomListAdapterExistingChecklist(this, checklist_items);
         list = findViewById(R.id.admin_edit_checklist_items_list);
         list.setAdapter(adapter);
+        ChecklistDAO.accessChecklistDB.addSubscriber(adapter);
     }
 
     private void getChecklistDetails(){
@@ -106,9 +100,5 @@ public class AdminEditChecklist extends AppCompatActivity {
         }
 
         checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
-
-//        for (int i = 0; i < checklist_items.size(); i++){
-//            checklist_items_id.add(checklist_items.get(i).getChecklistID());
-//        }
     }
 }

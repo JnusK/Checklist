@@ -36,23 +36,13 @@ public class AdminCreateChecklist extends AppCompatActivity {
     }
 
     private void createNewChecklist(){
+        checklist_name = checklist_name_input.getText().toString();
         ChecklistDAO.accessChecklistDB.addChecklistToDB(checklist_name , "Daily" , 1);
         checklist_id = ChecklistDAO.accessChecklistDB.findChecklist(checklist_name, 1).get(0).getID();
         for (int i = 0; i < checklist_items.size(); i++){
             Log.d("TEST", "CHECK ITEM: " + checklist_items.get(i));
             ChecklistDAO.accessChecklistDB.addCheckListItemsToDB(checklist_id, checklist_items.get(i), 0, 1);
         }
-    }
-
-    private void createChecklistObject(){
-        checklist_name = checklist_name_input.getText().toString();
-//
-//        for (int i = 0; i < list.getCount(); i++ ){
-//            eachRow = list.getChildAt(i);
-//            each_checklist_item_input = eachRow.findViewById(R.id.new_checklist_item_name);
-//            checklist_items_names.add(each_checklist_item_input.getText().toString());
-//        }
-//        Log.e("TEST", checklist_items_names.toString());
     }
 
     private void initialiseView(){
@@ -80,7 +70,6 @@ public class AdminCreateChecklist extends AppCompatActivity {
         create_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i= new Intent(AdminCreateChecklist.this, AdminSearchChecklist.class);
-                createChecklistObject();
                 createNewChecklist();
                 startActivity(i);
             }

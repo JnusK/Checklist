@@ -42,17 +42,13 @@ public class CustomListAdapterExistingChecklist extends ArrayAdapter<ChecklistIt
         this.context=context;
         this.checklist_items_list=checklist_items;
 
-//        this.checklist_id=ChecklistDAO.accessChecklistDB.findCheckListID(checklist_items_id.get(0));
-        ChecklistDAO.accessChecklistDB.addSubscriber(this);
+        this.checklist_id = checklist_items.get(0).getChecklistID();
+
     }
 
     @Override
     public void update() {
         checklist_items_list = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
-        for (int i = 0; i < checklist_items_list.size(); i += 0){
-            checklist_items_id = new ArrayList<>();
-            checklist_items_id.add(checklist_items_list.get(i).getChecklistID());
-        }
         notifyDataSetChanged();
     }
 
@@ -64,14 +60,13 @@ public class CustomListAdapterExistingChecklist extends ArrayAdapter<ChecklistIt
         delete_button = rowView.findViewById(R.id.new_checklist_item_delete);
         Log.d("TEST", "position: " + position);
 
-        ChecklistItem selected_checklist = checklist_items_list.get(position);
+        final ChecklistItem selected_checklist = checklist_items_list.get(position);
         checklist_item_name.setText(selected_checklist.getDescription());
 
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checklist_items_id.remove(position);
-                notifyDataSetChanged();
+                ChecklistDAO.accessChecklistDB.deleteChecklistItem(selected_checklist.getChecklistItemID(),1);
             }
         });
 

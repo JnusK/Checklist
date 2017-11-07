@@ -11,17 +11,20 @@ public class MainApplication extends Application {
     public static final String TAG = MainApplication.class.getSimpleName();
     public static UserDAO userDAO;
     public static ChecklistDAO checklistDAO;
+    public static int num = 0;
 
 
     @Override
     public void onCreate() {
+
         super.onCreate();
-        userDAO = new UserDAO();
-        userDAO.DBHandler(getApplicationContext());
+        if (num == 0) {
+            userDAO = new UserDAO();
+            userDAO.DBHandler(getApplicationContext());
 
-        checklistDAO = new ChecklistDAO();
-        checklistDAO.DBHandler(getApplicationContext());
-
+            checklistDAO = new ChecklistDAO();
+            checklistDAO.DBHandler(getApplicationContext());
+        }
     }
 
     @Override

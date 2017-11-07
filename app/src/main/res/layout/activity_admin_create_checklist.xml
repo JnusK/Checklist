@@ -62,12 +62,4 @@
         android:text="Save"
         android:layout_marginBottom="5dp"/>
 
-    <Button
-        android:id="@+id/admin_create_checklist_delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/admin_create_checklist_items_list"
-        android:layout_alignTop="@+id/admin_create_checklist_name"
-        android:text="Delete Checklist" />
-
 </RelativeLayout>

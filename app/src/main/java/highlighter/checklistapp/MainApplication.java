@@ -17,10 +17,9 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         userDAO = new UserDAO();
-        Log.d("Application", "created");
         userDAO.DBHandler(getApplicationContext());
+
         checklistDAO = new ChecklistDAO();
-        Log.d("Application", "created");
         checklistDAO.DBHandler(getApplicationContext());
 
     }

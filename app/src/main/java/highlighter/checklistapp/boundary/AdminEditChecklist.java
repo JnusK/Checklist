@@ -3,6 +3,7 @@ package highlighter.checklistapp.boundary;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,9 +31,12 @@ public class AdminEditChecklist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_edit_checklist);
-
-        initialiseView();
+        Log.d ("EditChecklist", "abc: 1");
         getChecklistDetails();
+        Log.d ("EditChecklist", "abc: 2");
+//        initialiseView();
+        Log.d ("EditChecklist", "abc: 3");
+
     }
 
     private void createNewChecklist(){
@@ -87,6 +91,7 @@ public class AdminEditChecklist extends AppCompatActivity {
 
     private void getChecklistDetails(){
         Intent intent = getIntent();
+
         if(intent.hasExtra("selected_checklist_id")){
             checklist_id = Integer.parseInt(intent.getStringExtra("selected_checklist_id"));
             checklist_name = ChecklistDAO.accessChecklistDB.findChecklist(Integer.toString(checklist_id), 2).get(0).getName();

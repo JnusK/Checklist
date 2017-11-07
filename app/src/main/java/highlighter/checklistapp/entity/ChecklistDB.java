@@ -142,9 +142,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
         int unixTime = (int) (System.currentTimeMillis() / 1000L);
 
         if(checklistArraylist.size() ==0){
-
-
-
             addCheckListItemsToDB(0,id,description ,serviceability,choice);
             return 1;
 

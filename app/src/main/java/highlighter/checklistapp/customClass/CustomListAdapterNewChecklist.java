@@ -2,6 +2,7 @@ package highlighter.checklistapp.customClass;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import highlighter.checklistapp.R;
 import highlighter.checklistapp.UserDAO;
 import highlighter.checklistapp.boundary.UserDetailedChecklistPage;
 import highlighter.checklistapp.entity.Checklist;
+import highlighter.checklistapp.entity.ChecklistItem;
 
 /**
  * Created by Khorly on 24/10/17.
@@ -26,25 +28,32 @@ import highlighter.checklistapp.entity.Checklist;
 public class CustomListAdapterNewChecklist extends ArrayAdapter<Integer> implements Subscriber{
     private final Activity context;
     int checklist_id;
-    ArrayList<Integer> checklist_items;
+    ArrayList<Integer> checklist_items_id;
+    ArrayList<ChecklistItem> checklist_items_list;
     TextView checklist_item_name;
     View rowView;
     LayoutInflater inflater;
     Button delete_button;
 
-    public CustomListAdapterNewChecklist(Activity context, ArrayList<Integer> checklist_items) {
-        super(context, R.layout.new_checklist_item, checklist_items);
+    public CustomListAdapterNewChecklist(Activity context, ArrayList<Integer> checklist_items_id) {
+        super(context, R.layout.new_checklist_item, checklist_items_id);
         // TODO Auto-generated constructor stub
 
         this.context=context;
-        this.checklist_items=checklist_items;
-        this.checklist_id=ChecklistDAO.accessChecklistDB.findCheckListID(checklist_items.get(0));
+        this.checklist_items_id=checklist_items_id;
+        Log.d ("CustomList", "Received: " + checklist_items_id);
+
+        this.checklist_id=ChecklistDAO.accessChecklistDB.findCheckListID(checklist_items_id.get(0));
         ChecklistDAO.accessChecklistDB.addSubscriber(this);
     }
 
     @Override
     public void update() {
-//        checklist_items = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
+        checklist_items_list = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_id);
+        for (int i = 0; i < checklist_items_list.size(); i += 0){
+            checklist_items_id = new ArrayList<>();
+            checklist_items_id.add(checklist_items_list.get(i).getChecklistID());
+        }
         notifyDataSetChanged();
     }
 
@@ -55,12 +64,13 @@ public class CustomListAdapterNewChecklist extends ArrayAdapter<Integer> impleme
         checklist_item_name = rowView.findViewById(R.id.new_checklist_item_name);
         delete_button = rowView.findViewById(R.id.new_checklist_item_delete);
 
-        checklist_item_name.setText(checklist_items.get(position));
+        ChecklistItem selected_checklist = ChecklistDAO.accessChecklistDB.selectCheckListItems(checklist_items_id.get(position)).get(0);
+        checklist_item_name.setText(selected_checklist.getDescription());
 
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checklist_items.remove(position);
+                checklist_items_id.remove(position);
                 notifyDataSetChanged();
             }
         });

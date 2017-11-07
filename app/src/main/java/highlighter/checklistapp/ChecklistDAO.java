@@ -21,11 +21,12 @@ public class ChecklistDAO {
 
         context2 = context;
         accessChecklistDB = new ChecklistDB(context);
+        populateChecklist(context);
 
     }
 
 
-    public void populateChecklist(Context context){
+    public static void populateChecklist(Context context){
 
         ChecklistDB db = new ChecklistDB(context2);
 

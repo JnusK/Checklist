@@ -40,9 +40,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
     private static final String CHECKLIST_ID = "id";
     private static final String CHECKLIST_FREQUENCY = "frequency";
     private static final String CHECKLIST_DATE_ADDED = "date_added";
-
-
-
     private static final String ITEM_CHECKLIST_ID = "checklist_id"; //a column to hold the id of the checklist it belongs to
     private static final String ITEM_ID = "id";
     private static final String ITEM_DESC = "description";
@@ -56,17 +53,8 @@ public class ChecklistDB extends SQLiteOpenHelper{
     public static final int ARCHIVE = 1;
     public static final int TEMPLATE = 2;
 
-
-
-
-
-
-
-
-
     ArrayList<Checklist> checklistDB;
     String frequency;
-
 
     /*public ChecklistDB(ArrayList<Checklist> checklistDB, String frequency){
         this.checklistDB = checklistDB;
@@ -75,7 +63,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
     public ChecklistDB(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     public void checkDB(){
@@ -93,22 +80,15 @@ public class ChecklistDB extends SQLiteOpenHelper{
 
 
     public int updateChecklist(int serviceability, int checklist_ID, int checklist_item_no){
-
-
         String selectQuery = "UPDATE " + TABLE_CHECKLISTITEMS + " SET "
                 +ITEM_SERV +   "=" +  "'" + serviceability + "'" + " WHERE " + ITEM_CHECKLIST_ID + "=" + checklist_item_no;
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(selectQuery);
-
-
         return 1;
     }
 
 
     public int deleteChecklist(int checklist_id){
-
-
-
         String selectQuery = "DELETE * FROM " + TABLE_CHECKLISTS + " WHERE "
                 +CHECKLIST_ID +   "=" +  "'" + checklist_id + "'";
 
@@ -118,7 +98,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
         selectQuery =  "DELETE * FROM " + TABLE_CHECKLISTITEMS + " WHERE "
                 +ITEM_ID +   "=" +  "'" + checklist_id + "'";
         db.execSQL(selectQuery);
-
 
         return 1;
     }
@@ -151,8 +130,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
         else if (choice == TEMPLATE){
 
             db.insert(TEMPLATE_TABLE_CHECKLISTITEMS, null, values);
-
-
         }
 
 

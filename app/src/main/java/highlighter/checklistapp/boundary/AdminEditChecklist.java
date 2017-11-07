@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
 import highlighter.checklistapp.customClass.CustomListAdapterNewChecklist;
 
@@ -35,6 +36,7 @@ public class AdminEditChecklist extends AppCompatActivity {
         //Create new checklist
         // checklistname = checklist_name
         // checklistitems = checklist_items
+        
     }
 
     //edit this

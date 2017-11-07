@@ -3,8 +3,12 @@ package highlighter.checklistapp;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import highlighter.checklistapp.controller.AccessChecklistDB;
+import highlighter.checklistapp.entity.Checklist;
 import highlighter.checklistapp.entity.ChecklistDB;
+import highlighter.checklistapp.entity.ChecklistItem;
 
 /**
  * Created by Khorly on 2/11/17.
@@ -13,57 +17,50 @@ import highlighter.checklistapp.entity.ChecklistDB;
 public class ChecklistDAO {
     public static ChecklistDB accessChecklistDB;
 
-
-    static boolean call_once = true;
-    static Context context2;
-
-
     public static void DBHandler(Context context){
         Log.d("DBHandler", "user ");
-
-        context2 = context;
+        
         accessChecklistDB = new ChecklistDB(context);
-        populateChecklist(context);
+        populateChecklist();
 
     }
 
 
-    public static void populateChecklist(Context context) {
+    public static void populateChecklist() {
+        if (accessChecklistDB.getAllCheckListItemFromArchive().size()==0) {
+            //Checking to prevent duplication of items and checklist when doing initial population
+            accessChecklistDB.addChecklistToDB("Daily item 1", "Daily", ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(0,"Daily item 1 description1" , 0 , ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(0,"Daily item 1 description2" , 0 , ChecklistDB.ARCHIVE);
 
-        ChecklistDB db = new ChecklistDB(context2);
+            accessChecklistDB.addChecklistToDB("Daily item 2", "Daily", ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(1,"Daily item 2 description1" , 0 , ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(1,"Daily item 2 description2" , 0 , ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(1,"Daily item 2 description3" , 0 , ChecklistDB.ARCHIVE);
 
-        if (call_once) {
-            db.addChecklistToDB("Daily Item 1 " ,0 , 0, "Daily" );
-            db.addCheckListItemsToDB(0,0,"Daily item 1 description1" , 0, ChecklistDB.ARCHIVE);
-            db.addCheckListItemsToDB(1,0,"Daily item 1 description2" , 0, ChecklistDB.ARCHIVE);
+            accessChecklistDB.addChecklistToDB("Weekly item 2", "Weekly", ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(2,"Weekly item 2 description1" , 0 , ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(2,"Weekly item 2 description2" , 0 , ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Daily Item 2 " ,1 , 0, "Daily" );
-            db.addCheckListItemsToDB(2,1,"Daily item 2 description1" , 0, ChecklistDB.ARCHIVE);
-            db.addCheckListItemsToDB(4,1,"Daily item 2 description2" , 0, ChecklistDB.ARCHIVE);
+            accessChecklistDB.addChecklistToDB("Weekly item 3", "Weekly", ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(3,"Weekly item 2 description1" , 0 , ChecklistDB.ARCHIVE);
+            accessChecklistDB.addCheckListItemsToDB(3,"Weekly item 2 description2" , 0 , ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Weekly Item 2 " ,2 , 0, "Weekly" );
-            db.addCheckListItemsToDB(5,2,"Weekly item 2 description1" , 0, ChecklistDB.ARCHIVE);
-            db.addCheckListItemsToDB(6,2,"Weekly item 2 description2" , 0, ChecklistDB.ARCHIVE);
+            accessChecklistDB.addChecklistToDB("Biweekly item 1", "Biweekly", ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Weekly Item 3 " ,3 , 0, "Weekly" );
-            db.addCheckListItemsToDB(7,3,"Weekly item 3 description1" , 0, ChecklistDB.ARCHIVE);
-            db.addCheckListItemsToDB(8,3,"Weekly item 3 description2" , 0, ChecklistDB.ARCHIVE);
+            accessChecklistDB.addChecklistToDB("Biweekly item 2", "Biweekly", ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Biweekly Item 1" ,4 , 0, "Biweekly" );
+            accessChecklistDB.addChecklistToDB("Monthly item 1", "Monthly", ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Biweekly Item 2" ,5 , 0, "Biweekly" );
+            accessChecklistDB.addChecklistToDB("Monthly item 2", "Monthly", ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Monthly Item 1" ,6 , 0, "Monthly" );
+            accessChecklistDB.addChecklistToDB("Yearly item 1", "Yearly", ChecklistDB.ARCHIVE);
 
-            db.addChecklistToDB("Monthly Item 2" ,7 , 0, "Monthly" );
-
-            db.addChecklistToDB("Yearly Item 1" ,8 , 0, "Yearly" );
-
-            db.addChecklistToDB("Yearly Item 2" ,9 , 0, "Yearly" );
-            call_once = false;
+            accessChecklistDB.addChecklistToDB("Yearly item 2", "Yearly", ChecklistDB.ARCHIVE);
+            
+            ArrayList<ChecklistItem> items = new ArrayList<ChecklistItem>();
+            items = accessChecklistDB.getAllCheckListItemFromArchive();
+            Log.w("checklistDB", items.toString());
         }
-
-
-
     }
 }

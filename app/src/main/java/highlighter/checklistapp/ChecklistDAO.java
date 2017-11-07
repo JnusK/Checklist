@@ -13,6 +13,8 @@ import highlighter.checklistapp.entity.ChecklistDB;
 public class ChecklistDAO {
     public static ChecklistDB accessChecklistDB;
 
+
+    static boolean call_once = true;
     static Context context2;
 
 
@@ -26,50 +28,41 @@ public class ChecklistDAO {
     }
 
 
-    public static void populateChecklist(Context context){
+    public static void populateChecklist(Context context) {
 
         ChecklistDB db = new ChecklistDB(context2);
 
-        db.addChecklistToDB("Daily item 1" , 1 , 1, "Daily");
-        db.addCheckListItemsToDB(111,1,"Daily item 1 description" , 0);
-        db.addCheckListItemsToDB(122,1,"Daily item 1 description" , 0);
+        if (call_once) {
+            db.addChecklistToDB("Daily item 1", "Daily", ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(0,"Daily item 1 description1" , 0 , ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(0,"Daily item 1 description2" , 0 , ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Daily item 2" , 2 , 1, "Daily");
-        db.addCheckListItemsToDB(222,2,"Daily item 2 description" , 0);
-        db.addCheckListItemsToDB(233,2,"Daily item 2 description" , 0);
+            db.addChecklistToDB("Daily item 2", "Daily", ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(1,"Daily item 2 description1" , 0 , ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(1,"Daily item 2 description2" , 0 , ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Weekly item 2" , 3 , 1, "Weekly");
-        db.addCheckListItemsToDB(333,3,"Weekly item 1 description" , 0);
-        db.addCheckListItemsToDB(334,3,"Weekly item 1 description" , 0);
+            db.addChecklistToDB("Weekly item 2", "Weekly", ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(2,"Weekly item 2 description1" , 0 , ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(2,"Weekly item 2 description2" , 0 , ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Weekly item 3" , 4 , 1, "Weekly");
-        db.addCheckListItemsToDB(444,4,"Weekly item 2 description" , 0);
-        db.addCheckListItemsToDB(445,4,"Weekly item 2 description" , 0);
+            db.addChecklistToDB("Weekly item 3", "Weekly", ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(3,"Weekly item 2 description1" , 0 , ChecklistDB.ARCHIVE);
+            db.addCheckListItemsToDB(3,"Weekly item 2 description2" , 0 , ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Biweekly item 1" , 5 , 1, "Biweekly");
-        db.addCheckListItemsToDB(555,5,"Biweekly item 1 description" , 0);
-        db.addCheckListItemsToDB(556,5,"Biweekly item 1 description" , 0);
+            db.addChecklistToDB("Biweekly item 1", "Biweekly", ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Biweekly item 2" , 6 , 1, "Biweekly");
-        db.addCheckListItemsToDB(666,6,"Biweekly item 2 description" , 0);
-        db.addCheckListItemsToDB(667,6,"Biweekly item 2 description" , 0);
+            db.addChecklistToDB("Biweekly item 2", "Biweekly", ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Monthly item 1" , 7 , 1, "Monthly");
-        db.addCheckListItemsToDB(777,7,"Monthly item 1 description" , 0);
-        db.addCheckListItemsToDB(778,7,"Monthly item 1 description" , 0);
+            db.addChecklistToDB("Monthly item 1", "Monthly", ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Monthly item 2" , 8 , 1, "Monthly");
-        db.addCheckListItemsToDB(888,8,"Monthly item 2 description" , 0);
-        db.addCheckListItemsToDB(889,8,"Monthly item 2 description" , 0);
+            db.addChecklistToDB("Monthly item 2", "Monthly", ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Yearly item 1" , 9 , 1, "Yearly");
-        db.addCheckListItemsToDB(999,9,"Yearly item 1 description" , 0);
-        db.addCheckListItemsToDB(990,9,"Yearly item 1 description" , 0);
+            db.addChecklistToDB("Yearly item 1", "Yearly", ChecklistDB.ARCHIVE);
 
-        db.addChecklistToDB("Yearly item 2" , 10 , 1, "Yearly");
-        db.addCheckListItemsToDB(1000,10,"Yearly item 2 description" , 0);
-        db.addCheckListItemsToDB(1001,10,"Yearly item 2 description" , 0);
+            db.addChecklistToDB("Yearly item 2", "Yearly", ChecklistDB.ARCHIVE);
+            call_once = false;
+        }
+
+
     }
-
-
 }

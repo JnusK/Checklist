@@ -9,7 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import highlighter.checklistapp.customClass.Subscriber;
+import highlighter.checklistapp.boundary.Subscriber;
 
 /**
  * Created by Joseph on 10/24/2017.

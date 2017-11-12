@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.UserDAO;
+import highlighter.checklistapp.control.UserDAO;
 
 /**
  * A login screen that offers login via email/password.

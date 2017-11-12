@@ -1,12 +1,10 @@
-package highlighter.checklistapp;
+package highlighter.checklistapp.control;
 
 import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
 
-import highlighter.checklistapp.controller.AccessChecklistDB;
-import highlighter.checklistapp.entity.Checklist;
 import highlighter.checklistapp.entity.ChecklistDB;
 import highlighter.checklistapp.entity.ChecklistItem;
 

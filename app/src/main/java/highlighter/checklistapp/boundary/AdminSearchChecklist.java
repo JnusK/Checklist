@@ -1,8 +1,8 @@
 package highlighter.checklistapp.boundary;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,14 +11,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.customClass.CustomListAdapterEditChecklist;
+import highlighter.checklistapp.control.ChecklistDAO;
 import highlighter.checklistapp.entity.Checklist;
 
 public class AdminSearchChecklist extends AppCompatActivity {

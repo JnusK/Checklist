@@ -9,8 +9,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import highlighter.checklistapp.controller.AccessUserDB;
-
 /**
  * Created by Jnus on 23/10/2017.
  */

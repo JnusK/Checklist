@@ -1,4 +1,4 @@
-package highlighter.checklistapp.customClass;
+package highlighter.checklistapp.boundary;
 
 import android.app.Activity;
 import android.view.LayoutInflater;

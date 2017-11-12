@@ -2,7 +2,6 @@ package highlighter.checklistapp.boundary;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -12,10 +11,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.customClass.CustomListAdapter2;
-import highlighter.checklistapp.entity.ChecklistDB;
+import highlighter.checklistapp.control.ChecklistDAO;
 import highlighter.checklistapp.entity.ChecklistItem;
 
 public class UserDetailedChecklistPage extends UserHomepage{

@@ -1,9 +1,8 @@
-package highlighter.checklistapp;
+package highlighter.checklistapp.control;
 
 import android.content.Context;
 import android.util.Log;
 
-import highlighter.checklistapp.controller.AccessUserDB;
 import highlighter.checklistapp.entity.UserDB;
 
 /**

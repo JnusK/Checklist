@@ -15,9 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.customClass.CustomListAdapter;
+import highlighter.checklistapp.control.ChecklistDAO;
 import highlighter.checklistapp.entity.Checklist;
 import highlighter.checklistapp.entity.ChecklistDB;
 

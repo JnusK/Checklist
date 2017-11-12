@@ -1,4 +1,4 @@
-package highlighter.checklistapp.customClass;
+package highlighter.checklistapp.boundary;
 
 /**
  * Created by Khorly on 7/11/17.

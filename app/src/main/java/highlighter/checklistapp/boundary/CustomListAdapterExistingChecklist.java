@@ -1,7 +1,6 @@
-package highlighter.checklistapp.customClass;
+package highlighter.checklistapp.boundary;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.UserDAO;
-import highlighter.checklistapp.boundary.UserDetailedChecklistPage;
-import highlighter.checklistapp.entity.Checklist;
+import highlighter.checklistapp.control.ChecklistDAO;
 import highlighter.checklistapp.entity.ChecklistItem;
 
 /**

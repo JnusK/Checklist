@@ -9,7 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.UserDAO;
+import highlighter.checklistapp.control.UserDAO;
 
 /**
  * Created by Spencer on 20/10/2017.

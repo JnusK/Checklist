@@ -11,10 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import highlighter.checklistapp.ChecklistDAO;
 import highlighter.checklistapp.R;
-import highlighter.checklistapp.customClass.CustomListAdapterExistingChecklist;
-import highlighter.checklistapp.customClass.Subscriber;
+import highlighter.checklistapp.control.ChecklistDAO;
 import highlighter.checklistapp.entity.ChecklistItem;
 
 public class AdminEditChecklist extends AppCompatActivity implements Subscriber{

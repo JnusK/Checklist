@@ -1,7 +1,9 @@
 package highlighter.checklistapp;
 
 import android.app.Application;
-import android.util.Log;
+
+import highlighter.checklistapp.control.ChecklistDAO;
+import highlighter.checklistapp.control.UserDAO;
 
 /**
  * Created by Khorly on 2/11/17.

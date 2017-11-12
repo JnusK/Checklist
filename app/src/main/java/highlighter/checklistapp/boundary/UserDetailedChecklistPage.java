@@ -51,7 +51,7 @@ public class UserDetailedChecklistPage extends UserHomepage{
             public void onClick(View v) {
                 // TODO Auto-generated method stub
 
-                ChecklistDAO.accessChecklistDB.addChecklistToDB(ChecklistName , "Daily" , 1);
+//                ChecklistDAO.accessChecklistDB.addChecklistToDB(ChecklistName , "Daily" , 1);
                 ChecklistID = ChecklistDAO.accessChecklistDB.findChecklist(ChecklistName, 1).get(0).getID();
 
                 for (int i = 0; i < checklists.size(); i++){

@@ -114,13 +114,6 @@ public class ChecklistDB extends SQLiteOpenHelper{
         return 1;
     }
 
-    public void updateChecklistItem(int checklist_item_id, String desc){
-        String selectQuery = "UPDATE " + TABLE_CHECKLISTITEMS + " SET "
-                +ITEM_DESC +   "=" +  "'" + desc + "'" + " WHERE " + ITEM_ITEM_ID + "=" + checklist_item_id;
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL(selectQuery);
-    }
-
     public int updateChecklistName(String new_name, int checklist_id){
         /**
          * Sets the checklist item serviceability
